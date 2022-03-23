@@ -6,3 +6,7 @@
 npm install
 npm start
 ```
+
+
+### Notes:
+* Kaikki javascript englanniksi mutta sivuston sisältö tietenkin suomeksi.
