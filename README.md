@@ -1,4 +1,5 @@
-## [Backend Repo](https://github.com/devjume/verkkopalvelu-backend)
+### Ryhmän 2. Verkkopalveluprojekti kurssin frontend
+#### [Backend Repo](https://github.com/devjume/verkkopalvelu-backend) | [HacknPlan](https://app.hacknplan.com/p/164255/) | [Figma](https://www.figma.com/file/XyZyYszfC1mNYNnAYLGXl5/nettisivuproto)
 
 ### Getting Started:   
 ```
