@@ -1,3 +1,7 @@
 ## [Backend Repo](https://github.com/devjume/verkkopalvelu-backend)
 
-### Start: `npm start`
+### Getting Started:   
+```
+npm install
+npm start
+```
