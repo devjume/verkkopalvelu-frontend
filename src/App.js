@@ -2,6 +2,7 @@ import './App.css';
 import {Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
 import Products from './pages/Products';
+import Category from './pages/Category';
 
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -13,10 +14,13 @@ export default function App() {
   return (
     <>
       <div className="container">
-        <Navbar />
+        <Navbar url={URL}/>
         <Routes>
           <Route path="/" element={<Home />} ></Route>
-          <Route path="/products" element={<Products url={URL}/>}  ></Route>
+          <Route path="/products" element={<Products url={URL}/>}></Route>
+          {/* TÄMÄ DYNAAMISEKSI */}
+          <Route path="/Kannettavat" element={<Category url={URL} id={1}/>}></Route>
+          <Route path="/Komponentit" element={<Category url={URL} id={2}/>}></Route>
         </Routes>
         <Header></Header>
         <Footer />

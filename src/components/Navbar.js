@@ -3,17 +3,13 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const URL = "http://localhost/verkkopalvelu-backend/categories.php"
-
-
-export default function Navbar() {
+export default function Navbar({url}) {
   const [items, setItems] = useState([])
   useEffect(() => {
     
-    axios.get(URL)
+    axios.get(`${url}/categories.php`)
       .then((response) => {
         setItems(response.data)
-        console.log(response.data[0])
       }).catch(error => {
         alert(error.response ? error.response.data.error : error)
       }) 
@@ -35,7 +31,7 @@ export default function Navbar() {
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {items?.map(item => (
                   <li className="dropdown-item" key={item.id}>
-                    <Link to="/" className="nav-link" aria-current="page">{item.nimi}</Link>
+                    <Link to={`/${item.nimi}`} className="nav-link" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
               </ul>
