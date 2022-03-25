@@ -27,20 +27,21 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {items?.map(item => (
-            
-            <li className="dropdown-item" key={item.id}>
-                <Link to="/" className="nav-link" aria-current="page">{item.nimi}</Link>
-              </li>
-          ))}
-
+          <ul className='navbar-nav'>
+            <li className="nav-item dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown link
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                {items?.map(item => (
+                  <li className="dropdown-item" key={item.id}>
+                    <Link to="/" className="nav-link" aria-current="page">{item.nimi}</Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
           </ul>
-        </ul>
+          
         </div>
       </div>
     </nav>
