@@ -1,7 +1,24 @@
 import React from 'react'
 import {Link} from "react-router-dom";
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
+const URL = "http://localhost/verkkopalvelu-backend/categories.php"
+
 
 export default function Navbar() {
+  const [items, setItems] = useState([])
+  useEffect(() => {
+    
+    axios.get(URL)
+      .then((response) => {
+        setItems(response.data)
+        console.log(response.data[0])
+      }).catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      }) 
+      
+  }, [])
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -10,16 +27,26 @@ export default function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link to="/" className="nav-link" aria-current="page">Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/products" className="nav-link" aria-current="page">Products</Link>
-            </li>
+        <ul className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {items?.map(item => (
+            
+            <li className="dropdown-item" key={item.id}>
+                <Link to="/" className="nav-link" aria-current="page">{item.nimi}</Link>
+              </li>
+          ))}
+
           </ul>
+        </ul>
         </div>
       </div>
     </nav>
   )
 }
+
+
+
+
