@@ -18,7 +18,9 @@ export default function Navbar({url}) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Web Shop</a>
+        <a className="navbar-brand" href="#">
+        <Link to={`/`}  className="nav-link" aria-current="page">Etusivu</Link>
+        </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -26,7 +28,7 @@ export default function Navbar({url}) {
           <ul className='navbar-nav'>
             <li className="nav-item dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
+                Kategoriat
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {items?.map(item => (
