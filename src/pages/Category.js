@@ -14,7 +14,6 @@ export default function Category({url, id}) {
     axios.post(`${url}/category.php`, params)
       .then((response) => {
         setProducts(response.data);
-       console.log(response.data)
       }).catch(error => {
         alert(error.response ? error.response.data.error : error)
       }) 

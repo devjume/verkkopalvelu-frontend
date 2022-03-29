@@ -3,18 +3,14 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-export default function Navbar({url}) {
-  const [items, setItems] = useState([])
+export default function Navbar({url, categories}) {
+  const [items, setItems] = useState(categories)
+
+
   useEffect(() => {
-    
-    axios.get(`${url}/categories.php`)
-      .then((response) => {
-        setItems(response.data)
-      }).catch(error => {
-        alert(error.response ? error.response.data.error : error)
-      }) 
-      
-  }, [])
+  }, [items])
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">

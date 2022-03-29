@@ -29,18 +29,19 @@ export default function App() {
 
   return (
     <>
+    { isLoaded && 
       <div className="container">
-        <Navbar url={URL}/>
+        <Navbar url={URL} categories={categories}/>
         <Routes>
           <Route path="/" element={<Home />} ></Route>
           <Route path="/products" element={<Products url={URL}/>}></Route>
-          {/* TÄMÄ DYNAAMISEKSI */}
-          {isLoaded && <Route path="/Kannettavat" element={<Category url={URL} id={categories[0]['id']}/>}></Route> }
-          <Route path="/Komponentit" element={<Category url={URL} id={2}/>}></Route>
-        </Routes>
+          {categories?.map(category => (
+            <Route path={category.nimi} key={category.id} element={<Category url={URL} id={category.id}/>}></Route>
+          ))}
+           </Routes>
         <Header></Header>
         <Footer />
-      </div>
+      </div> }
     </>
 
   );
