@@ -9,8 +9,9 @@ export default function AddProduct({ url }) {
   const [productDesc, setProductDesc] = useState("");
   const [productSupplier, setProductSupplier] = useState("");
   const [productImg, setProductImg] = useState("");
-  const [productCategory, setProductCategory] = useState(0);
+  const [productCategory, setProductCategory] = useState(1);
   const [showMessage, setShowMessage] = useState(false);
+  const [categories, setCategories] = useState([])
 
   function postProduct(e) {
     const timer = setTimeout(() => setShowMessage(false), 1500);
@@ -23,10 +24,12 @@ export default function AddProduct({ url }) {
     params.append("kuvaus", productDesc)
     params.append("valmistaja", productSupplier)
     params.append("kuvatiedosto", productImg)
+    
     params.append("tuoteryhma", productCategory)
     axios.post(`${url}/addproduct.php`, params)
       .then((response) => {
         console.log(response.data);
+        
         setShowMessage(true);
        // clearTimeout(timer)
         //alert(response.data.success);
@@ -35,7 +38,6 @@ export default function AddProduct({ url }) {
         setProductDesc("")
         setProductSupplier("")
         setProductImg("")
-        setProductCategory("");
         //setProducts(response.data);
       }).catch(error => {
         alert(error.response ? error.response.data.error : error)
@@ -48,6 +50,13 @@ export default function AddProduct({ url }) {
   }
 
   useEffect(() => {
+    axios.get(`${url}/categories.php`)
+      .then((response) => {
+        //console.log(response.data)
+        setCategories(response.data)
+      }).catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      }) 
 
   }, [])
 
@@ -77,8 +86,12 @@ export default function AddProduct({ url }) {
           <label htmlFor="product-img" className='form-label'>Kuvatiedosto</label>
         </div>
         <div className="col-4  form-floating">
-          <input type="text" name="tuoteryhma" id="product-category" className='form-control' placeholder='Tuoteryhmä' value={productCategory} onChange={e => setProductCategory(e.target.value)} minLength="0" />
-          <label htmlFor="product-category" className='form-label'>Tuoteryhma</label>
+        <select onChange={e => setProductCategory(e.target.value)}>
+          {categories?.map(category => (
+            <option name="tuoteryhma" value={category.id} className="dropdown-item" key={category.id}>
+              {category.nimi}
+            </option>))}
+        </select>
         </div>
         <div className="col-auto d-flex align-items-end">
           <button type="submit" className='btn btn-primary'>Lisää</button>
