@@ -1,9 +1,11 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import {Routes, Route} from "react-router-dom";
+import axios from 'axios';
 import Home from "./pages/Home";
 import Products from './pages/Products';
 import Category from './pages/Category';
+import Admin from './pages/Admin';
 
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -32,19 +34,23 @@ export default function App() {
 
   return (
     <>
+    { isLoaded && 
       <div className="container">
-        <Navbar url={URL} cart={cart}/>
+        <Navbar url={URL} categories={categories} cart={cart}/>
         <Routes>
           <Route path="/" element={<Home />} ></Route>
           <Route path="/products/:categoryId" element={<Products url={URL} addToCart={addToCart}/>} />
           <Route path="/products" element={<Products url={URL}/>}></Route>
-          {/* TÄMÄ DYNAAMISEKSI */}
-          <Route path="/Kannettavat" element={<Category url={URL} id={1}/>}></Route>
-          <Route path="/Komponentit" element={<Category url={URL} id={2}/>}></Route>
-        </Routes>
+          {categories?.map(category => (
+            <Route path={category.nimi} key={category.id} element={<Category url={URL} id={category.id}/>}></Route>
+          ))}
+
+
+          <Route path="/admin" element={<Admin url={URL} />}></Route>
+           </Routes>
         <Header></Header>
         <Footer />
-      </div>
+      </div> }
     </>
 
   );
