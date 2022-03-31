@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Products from './pages/Products';
 import Category from './pages/Category';
 import Admin from './pages/Admin';
+import Contact from './pages/Contact';
 
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -55,9 +56,10 @@ export default function App() {
           {categories?.map(category => (
             <Route path={category.nimi} key={category.id} element={<Category url={URL} id={category.id}/>}></Route>
           ))}
-
           <Route path="/admin" element={<Admin url={URL} />}></Route>
-           </Routes>
+          <Route path="/contact" element={<Contact url={URL} />}></Route>
+          
+        </Routes>
         <Header></Header>
         <Footer />
       </div> }

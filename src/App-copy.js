@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import {Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import axios from 'axios';
 import Home from "./pages/Home";
 import Products from './pages/Products';
@@ -10,7 +10,6 @@ import Admin from './pages/Admin';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 
 const URL = "http://localhost/verkkopalvelu-backend";
 
