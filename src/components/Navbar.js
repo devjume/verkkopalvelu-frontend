@@ -4,9 +4,11 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Cart from './Cart';
 
-export default function Navbar({url,cart}) {
-  const [items, setItems] = useState([])
+export default function Navbar({url, categories, cart}) {
+  const [items, setItems] = useState(categories);
   useEffect(() => {
+
+
   }, [items])
 
 

@@ -16,15 +16,26 @@ const URL = "http://localhost/verkkopalvelu-backend";
 
 export default function App() {
     
-  
-    const [cart, setCart] = useState([]);
+  const [fetchError, setFetchError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [categories, setCategories] = useState([])
+  const [cart, setCart] = useState([]);
   
    useEffect(() => {
+
+     axios.get(`${URL}/categories.php`)
+       .then((response) => {
+         setCategories(response.data);
+         setIsLoaded(true);
+       }).catch(error => {
+         alert(error.response ? error.response.data.error : error)
+       })
+
      if ('cart' in localStorage) {
        setCart(JSON.parse(localStorage.getItem('cart')));
      }
    }, [])
-  
+
     function addToCart(product) {
       const newCart = [...cart,product]; 
       setCart(newCart);
@@ -44,7 +55,6 @@ export default function App() {
           {categories?.map(category => (
             <Route path={category.nimi} key={category.id} element={<Category url={URL} id={category.id}/>}></Route>
           ))}
-
 
           <Route path="/admin" element={<Admin url={URL} />}></Route>
            </Routes>
