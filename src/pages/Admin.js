@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import AddCategory from "../components/admin/AddCategory";
 import AddProduct from "../components/admin/AddProduct";
+import DeleteProduct from "../components/admin/DeleteProduct";
 export default function Admin({url, id}) {
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,6 +25,8 @@ export default function Admin({url, id}) {
       <AddCategory url={url}/>
       <h4>Lisää Tuote</h4>
       <AddProduct url={url}/>
+      <h4>Poista Tuote</h4>
+      <DeleteProduct url={url}/>
     </div>
   )
 }
