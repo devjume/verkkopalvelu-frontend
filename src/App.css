@@ -22,4 +22,10 @@
   img{
     height: 400px;
   }
+  footer {
+    background-color: #2C302E;
+  }
+  .list-group-item {
+    background-color: #2C302E;
+  }
   
