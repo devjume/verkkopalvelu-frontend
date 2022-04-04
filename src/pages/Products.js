@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 import Category from "./Category";
 
-export default function Products({url, addToCart}) {
+export default function Products({url}) {
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [shopList, setShopList] = useState(null);
   const [products, setProducts] = useState([]);  
-  const [categoryName, setCategoryName] = useState ('');
+  
 
   async function fetchProducts() {
     try {
@@ -30,6 +30,8 @@ export default function Products({url, addToCart}) {
   }, []);
 
   return (
+
+    
     <div>
       <h1>Products:</h1>
       <ul>
@@ -40,11 +42,15 @@ export default function Products({url, addToCart}) {
           {fetchError && <li>{fetchError}</li>}
 
           {/* Kun tieto on ladattu eikä virheitä ole niin näytä haluttu elementti */}
-          {isLoaded && !fetchError && (products.map((product) => <li key={product.tuote_id}>{product.tuotenimi}</li>))}
+          {isLoaded && !fetchError && (products.map((product) => <li key={product.tuote_id}>{product.tuotenimi}</li>
+          ))}
           
       
         
       </ul>
     </div>
+
+
+
   )
 }
