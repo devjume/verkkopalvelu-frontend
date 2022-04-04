@@ -1,0 +1,28 @@
+#products{
+    width: 10rem;
+    height: 10rem;
+    background-color: rgb(238, 238, 238) ;
+    margin: 1rem;
+    padding: 1rem;
+    border: 2px solid black;
+    display: flex;
+    
+    
+    
+}
+
+#detailsDiv{
+    background-color: rgb(210, 220, 220);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 100px;
+  }
+
+  img{
+    height: 400px;
+  }
+  
