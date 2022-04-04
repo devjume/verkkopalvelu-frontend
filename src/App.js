@@ -38,6 +38,7 @@ export default function App() {
    }, [])
 
     function addToCart(product) {
+      console.log(product)
       const newCart = [...cart,product]; 
       setCart(newCart);
       localStorage.setItem('cart',JSON.stringify(newCart));
@@ -51,10 +52,9 @@ export default function App() {
         <Navbar url={URL} categories={categories} cart={cart}/>
         <Routes>
           <Route path="/" element={<Home />} ></Route>
-          <Route path="/products/:categoryId" element={<Products url={URL} addToCart={addToCart}/>} />
           <Route path="/products" element={<Products url={URL}/>}></Route>
           {categories?.map(category => (
-            <Route path={category.nimi} key={category.id} element={<Category url={URL} id={category.id}/>}></Route>
+            <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} id={category.id}/>}></Route>
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>

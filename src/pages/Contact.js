@@ -10,14 +10,20 @@ export default function Contact({url}) {
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  function submitForm(e) {
+    e.preventDefault();
+    console.log("Submitted");
+  }
+
   useEffect(() => {
-    console.log(url);
+
+
   }, []);
 
   return (
     <div className="container mb-3">
       <h3>Ota yhteyttä</h3>
-      <form id="add-product" className='' onSubmit={console.log("123")}>
+      <form id="add-product" className='' onSubmit={submitForm}>
         <div className="col-3  form-floating">
           <input type="text" name="nimi" id="contact-name" className='form-control' placeholder='Nimi' value={contactName} onChange={e => setContactName(e.target.value)} />
           <label htmlFor="nimi" className='form-label'>Nimi</label>

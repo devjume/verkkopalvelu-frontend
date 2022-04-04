@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import axios from 'axios';
+import Products from "./Products";
 
-export default function Category({url, id}) {
+export default function Category({url, id, addToCart}) {
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,6 +28,7 @@ export default function Category({url, id}) {
            {item.tuotenimi}
           </h3>
           <p>{item.kuvaus}</p>
+          <button className='btn btn-primary' type="button" onClick={(e) => addToCart(item)}>Add</button>
         </div>
       ))}
     </div>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import Category from "./Category";
 import Details from './Details';
 
-export default function Products({url, addToCart}) {
+export default function Products({url}) {
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -49,6 +49,8 @@ export default function Products({url, addToCart}) {
 
 
   return (
+
+    
     <div>
       <h1>Tuotteet:</h1>
       <ul>
@@ -65,5 +67,8 @@ export default function Products({url, addToCart}) {
         
       </ul>
     </div>
+
+
+
   )
 }
