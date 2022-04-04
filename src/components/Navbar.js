@@ -33,8 +33,6 @@ export default function Navbar({url, categories, cart}) {
               </ul>
             </li>
             <li className='nav-item'><Link to="/contact" className="nav-link">Contact</Link></li>
-          </ul>
-          <ul className="navba-nav ml-auto">
             <li className="nav-item">
               <Cart cart={cart} />
             </li>
