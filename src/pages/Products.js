@@ -61,7 +61,7 @@ export default function Products({url}) {
           {fetchError && <li>{fetchError}</li>}
 
           {/* Kun tieto on ladattu eikä virheitä ole niin näytä haluttu elementti */}
-          {isLoaded && !fetchError && (products.map((product) => <li id="products" onClick={e => setSelectedProduct(product)} key={product.tuote_id}>{product.tuotenimi} </li>))}
+          {isLoaded && !fetchError && (products.map((product) => <div><img src=""></img><li id="products" onClick={e => setSelectedProduct(product)} key={product.tuote_id}>{product.tuotenimi} </li></div>))}
           
       
         

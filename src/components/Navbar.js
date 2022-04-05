@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Cart from './Cart';
+import Products from '../pages/Products';
 
 export default function Navbar({url, categories, cart}) {
   const [items, setItems] = useState(categories);
@@ -30,6 +31,8 @@ export default function Navbar({url, categories, cart}) {
                     <Link to={`/${item.nimi}`} className="nav-link" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
+                <li><hr class="dropdown-divider"/></li>
+            <li><Link to="/products" className="nav-link" aria-current="page">Kaikki tuotteet</Link></li>
               </ul>
             </li>
             <li className='nav-item'><Link to="/contact" className="nav-link">Contact</Link></li>
