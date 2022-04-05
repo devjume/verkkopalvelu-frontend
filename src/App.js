@@ -51,7 +51,7 @@ export default function App() {
       <div className="container">
         <Navbar url={URL} categories={categories} cart={cart}/>
         <Routes>
-          <Route path="/" element={<Home />} ></Route>
+          <Route path="/" element={<Home url={URL} />} ></Route>
           <Route path="/products" element={<Products url={URL}/>}></Route>
           {categories?.map(category => (
             <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} id={category.id}/>}></Route>
