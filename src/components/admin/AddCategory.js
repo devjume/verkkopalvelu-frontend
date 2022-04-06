@@ -10,7 +10,7 @@ export default function AddCategory({ url }) {
   const [timer, setTimer] = useState(null);
 
   function postCategory(e) {
-    setTimer(setTimeout(() => setShowMessage(false), 2000));
+    //setTimer(setTimeout(() => setShowMessage(false), 2000));
 
     e.preventDefault();
 
@@ -28,7 +28,7 @@ export default function AddCategory({ url }) {
 
   useEffect(() => {
     return () => {
-      clearTimeout(timer);
+      //clearTimeout(timer);
     }
   }, [showMessage])
 
