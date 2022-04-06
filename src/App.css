@@ -39,3 +39,35 @@
     height: 200px;
     pointer-events: none;
   }
+
+/*carousel round buttons*/
+.rec.rec-dot {
+  background-color: rgba(80,76,76, 1);
+  box-shadow: 0 0 1px 3px rgba(160,228,156, 1);
+}
+.rec.rec-dot:hover {
+  background-color: #a0e49c;
+  box-shadow: 0 0 1px 3px rgba(80,76,76, 1);
+}
+.rec.rec-dot:active {
+  background-color: rgba(80,76,76, 1);
+  box-shadow: 0 0 1px 3px rgba(160,228,156, 1);
+}
+.rec.rec-dot:focus {
+  background-color: #a0e49c;
+  box-shadow: 0 0 1px 3px rgba(80,76,76, 1);
+}
+/*carousel arrows*/
+.rec.rec-arrow {
+  border-radius: 0;
+  color: rgba(80,76,76, 1);
+  background-color: #a0e49c;
+}
+.rec.rec-arrow:hover:enabled {
+  color: #a0e49c;
+  background-color: rgba(80,76,76, 1);
+}
+.rec.rec-arrow:disabled {
+  cursor: wait;
+}
+
