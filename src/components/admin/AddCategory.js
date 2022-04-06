@@ -4,22 +4,27 @@ import { useState, useEffect, useRef } from 'react';
 
 export default function AddCategory({ url }) {
 
-  const [categoryName, setCategoryName] = useState("");
-  const [responseMessage, setResponseMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+  const [responseMessage, setResponseMessage] = useState("");
   const [timer, setTimer] = useState(null);
 
-  function postCategory(e) {
-    //setTimer(setTimeout(() => setShowMessage(false), 2000));
+  const [categoryName, setCategoryName] = useState("");
+  
+  
+  
 
+  function postCategory(e) {
+    setTimer(setTimeout(() => setShowMessage(false), 2000));
     e.preventDefault();
 
     const params = new URLSearchParams();
     params.append("categoryName", categoryName);
     axios.post(`${url}/add-category.php`, params)
       .then((response) => {
+
         setResponseMessage(response.data.message)
         setShowMessage(true);
+
         setCategoryName("");
       }).catch(error => {
         alert(error.response ? error.response.data.error : error)
@@ -28,7 +33,7 @@ export default function AddCategory({ url }) {
 
   useEffect(() => {
     return () => {
-      //clearTimeout(timer);
+      clearTimeout(timer);
     }
   }, [showMessage])
 
@@ -44,7 +49,9 @@ export default function AddCategory({ url }) {
         </div>
       </form>
       <div className='mt-1'>
-        {showMessage && <p>{responseMessage}</p>}
+        {showMessage && <div className="alert alert-success mt-2" role="alert">
+          {responseMessage}
+        </div>}
       </div>
       
     </>

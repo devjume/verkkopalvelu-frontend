@@ -27,7 +27,7 @@ export default function Contact({url}) {
 
     axios.post(`${url}/contact.php`, params)
       .then((response) => {
-        console.log(response.data);
+
         setResponesMessage(response.data.message);
         setShowMessage(true);
 
