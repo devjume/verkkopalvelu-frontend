@@ -30,9 +30,12 @@
   }
   
   .carousel {
-    font-family: sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+  }
+  .carousel_img {
+    height: 200px;
+    pointer-events: none;
   }
