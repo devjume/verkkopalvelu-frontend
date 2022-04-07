@@ -28,14 +28,15 @@ export default function Navbar({url, categories, cart}) {
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {items?.map(item => (
                   <li className="dropdown-item" key={item.id}>
-                    <Link to={`/${item.nimi}`} className="nav-link" aria-current="page">{item.nimi}</Link>
+                    <Link to={`/${item.nimi}`} className="dropdown-item" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
                 <li><hr class="dropdown-divider"/></li>
-            <li><Link to="/products" className="nav-link" aria-current="page">Kaikki tuotteet</Link></li>
+                <li><Link to="/products" className="dropdown-item" aria-current="page">Kaikki tuotteet</Link></li>
               </ul>
             </li>
-            <li className='nav-item'><Link to="/contact" className="nav-link">Contact</Link></li>
+            <li className='nav-item'><Link to="/contact" className="nav-link">Ota yhteyttä</Link></li>
+            <li className='nav-item'><Link to="/admin" className="nav-link">Admin</Link></li>
             <li className="nav-item">
               <Cart cart={cart} />
             </li>
