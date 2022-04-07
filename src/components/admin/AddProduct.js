@@ -6,6 +6,7 @@ export default function AddProduct({ url }) {
 
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState(0);
+  const [salePrice, setSalePrice] = useState(0);
   const [productDesc, setProductDesc] = useState("");
   const [productSupplier, setProductSupplier] = useState("");
   const [productImg, setProductImg] = useState("");
@@ -24,6 +25,7 @@ export default function AddProduct({ url }) {
     params.append("kuvaus", productDesc)
     params.append("valmistaja", productSupplier)
     params.append("kuvatiedosto", productImg)
+    params.append("alehinta", salePrice)
     
     params.append("tuoteryhma", productCategory)
     axios.post(`${url}/addproduct.php`, params)
@@ -35,6 +37,7 @@ export default function AddProduct({ url }) {
         //alert(response.data.success);
         setProductName("")
         setProductPrice(0)
+        setSalePrice(0)
         setProductDesc("")
         setProductSupplier("")
         setProductImg("")
@@ -72,6 +75,10 @@ export default function AddProduct({ url }) {
         <div className="col-4  form-floating">
           <input type="number" name="hinta" id="product-price" className='form-control' placeholder='Tuotteen hinta' value={productPrice} onChange={e => setProductPrice(e.target.value)}/>
           <label htmlFor="product-price" className='form-label'>Hinta</label>
+        </div>
+        <div className="col-4  form-floating">
+          <input type="number" name="alehinta" id="sale-price" className='form-control' placeholder='Tuotteen alehinta' value={salePrice} onChange={e => setSalePrice(e.target.value)}/>
+          <label htmlFor="sale-price" className='form-label'>Alehinta</label>
         </div>
         <div className="col-4  form-floating">
           <textarea type="text" name="kuvaus" id="product-desc" className='form-control' placeholder='Tuotteen kuvaus' value={productDesc} onChange={e => setProductDesc(e.target.value)}/>

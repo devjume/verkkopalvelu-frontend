@@ -32,7 +32,7 @@ export default function ComponentCarousel({ categoryId, url, categoryName }) {
       <div className="carousel">
         <Carousel breakPoints={breakPoints}>
         {products?.map(product => (
-            <Item key={product.tuote_id} ><div><img className="carousel_img" src={product.kuvatiedosto}/> <p>{product.tuotenimi} {product.hinta} </p> </div></Item>
+            <Item key={product.tuote_id} ><div><img className="carousel_img" src={product.kuvatiedosto}/> <p>{product.tuotenimi} {product.hinta}</p></div></Item>
           ))} 
         </Carousel>
       </div>
