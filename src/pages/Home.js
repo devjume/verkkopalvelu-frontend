@@ -9,7 +9,8 @@ export default function Home({url}) {
 
      axios.get(`${url}/categories.php`)
        .then((response) => {
-         setCategories(response.data);
+         let twoCategories = response.data.slice(0,2)
+         setCategories(twoCategories)
        }).catch(error => {
          alert(error.response ? error.response.data.error : error)
        })

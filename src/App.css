@@ -40,7 +40,7 @@
     pointer-events: none;
   }
 
-/*carousel round buttons*/
+/*carousel buttons*/
 .rec.rec-dot {
   background-color: rgba(80,76,76, 1);
   box-shadow: 0 0 1px 3px rgba(160,228,156, 1);
@@ -68,6 +68,6 @@
   background-color: rgba(80,76,76, 1);
 }
 .rec.rec-arrow:disabled {
-  cursor: wait;
+  cursor: auto;
 }
 
