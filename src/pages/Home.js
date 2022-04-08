@@ -2,6 +2,7 @@ import React from 'react'
 import ComponentCarousel from "../components/ComponentCarousel";
 import { useState, useEffect } from "react"
 import axios from 'axios';
+import Banner from '../components/admin/Banner';
 
 export default function Home({url}) {
   const [categories, setCategories] = useState()
@@ -18,6 +19,7 @@ export default function Home({url}) {
 
   return (
     <div>
+      <Banner></Banner>
       {categories?.map(category => (
             <ComponentCarousel key={category.id} url={url} categoryId={category.id} categoryName={category.nimi} />
           ))}
