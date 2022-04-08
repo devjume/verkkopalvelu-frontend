@@ -10,6 +10,7 @@ export default function Products({url}) {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [categoryName, setCategoryName] = useState ('');
+  const [searchTerm, setSearchTerm] = useState("")
 
   async function fetchProducts() {
     try {
@@ -53,6 +54,7 @@ export default function Products({url}) {
     
     <div>
       <h1>Tuotteet:</h1>
+      <input type="text" placeholder='Etsi tuotenimellä' onChange={event =>{setSearchTerm(event.target.value)}}></input>
       <ul>
           {/* Jos tietoja ei ole vielä ladattu, näytä käyttäjälle viesti */}
           {!isLoaded && <li>"Tietoja ladataan..."</li>}
@@ -61,7 +63,13 @@ export default function Products({url}) {
           {fetchError && <li>{fetchError}</li>}
 
           {/* Kun tieto on ladattu eikä virheitä ole niin näytä haluttu elementti */}
-          {isLoaded && !fetchError && (products.map((product) => <div><img src=""></img><li id="products" onClick={e => setSelectedProduct(product)} key={product.tuote_id}>{product.tuotenimi} </li></div>))}
+          {isLoaded && !fetchError && (products.filter((products) =>{
+            if(searchTerm == "" ){
+              return products
+            } else if (products.tuotenimi.toLowerCase().includes(searchTerm.toLowerCase())){
+              return products
+            }
+          }).map((product) => <div><img src=""></img><li id="products" onClick={e => setSelectedProduct(product)} key={product.tuote_id}>{product.tuotenimi} </li></div>))}
           
       
         
