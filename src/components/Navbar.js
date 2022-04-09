@@ -31,7 +31,7 @@ export default function Navbar({url, categories, cart}) {
                     <Link to={`/${item.nimi}`} className="dropdown-item" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
-                <li><hr class="dropdown-divider"/></li>
+                <li><hr className="dropdown-divider"/></li>
                 <li><Link to="/products" className="dropdown-item" aria-current="page">Kaikki tuotteet</Link></li>
               </ul>
             </li>
