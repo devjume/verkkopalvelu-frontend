@@ -53,34 +53,34 @@ export default function Products({url}) {
   return (
     <div>
       <h1>Tuotteet:</h1>
-      <input type="text" placeholder='Etsi tuotenimellä' onChange={event =>{setSearchTerm(event.target.value)}}></input>
-      <ul>
-          {/* Jos tietoja ei ole vielä ladattu, näytä käyttäjälle viesti */}
-          {!isLoaded && <li>"Tietoja ladataan..."</li>}
-          
-          {/* Jos virheitä, näytä ne käyttäjälle */}
-          {fetchError && <li>{fetchError}</li>}
+      <div className="row mt-3">
+        <div className="col-3">
+          <label for="search" class="form-label">Etsi tuotenimellä</label>
+          <input type="text" id="search" className="form-control" placeholder='Etsi tuotenimellä' onChange={event => { setSearchTerm(event.target.value) }}></input>
 
-          {/* Kun tieto on ladattu eikä virheitä ole niin näytä haluttu elementti */}
-          {isLoaded && !fetchError && (products.filter((products) =>{
-            if(searchTerm == "" ){
-              return products
-            } else if (products.tuotenimi.toLowerCase().includes(searchTerm.toLowerCase())){
-              return products
-            }
-          }).map((product) => <div><img src=""></img><li id="products" onClick={e => setSelectedProduct(product)} key={product.tuote_id}>{product.tuotenimi} </li></div>))}
-          
-      
+        </div>
         
-      </ul>
+      </div>
 
-      <div className="row g-2">
-        {isLoaded && !fetchError && (products.map((product) =>
-          
+      {/* Jos tietoja ei ole vielä ladattu, näytä käyttäjälle viesti */}
+      {!isLoaded && <li>"Tietoja ladataan..."</li>}
+
+      {/* Jos virheitä, näytä ne käyttäjälle */}
+      {fetchError && <li>{fetchError}</li>}
+
+      {/* Kun tieto on ladattu eikä virheitä ole niin näytä haluttu elementti */}
+      <div className="row g-2 mt-3">
+        {isLoaded && !fetchError && (products.filter((products) => {
+          if (searchTerm == "") {
+            return products
+          } else if (products.tuotenimi.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return products
+          }
+        }).map((product) =>
           <div className="col-md-4 col-lg-3 d-flex" key={product.tuote_id}>
             <div className="card p-2">
               {/*<img src="https://via.placeholder.com/200x200.png" className="card-img-top h-100" alt="kuva1"></img>  */}
-              <img src={product.kuvatiedosto} className="card-img-top img-fluid" alt="kuva1" style={{width: "auto", height: "200px", objectFit: "scale-down"}}></img>
+              <img src={product.kuvatiedosto} className="card-img-top img-fluid" alt={product.tuotenimi} style={{width: "auto", height: "200px", objectFit: "scale-down"}}></img>
               <div className="card-body d-flex flex-column">
                 <h6 className="card-title">{product.tuotenimi}</h6>
                 <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
