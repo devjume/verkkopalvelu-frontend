@@ -62,7 +62,6 @@ export default function Products({url}) {
           {fetchError && <li>{fetchError}</li>}
 
           {/* Kun tieto on ladattu eikä virheitä ole niin näytä haluttu elementti */}
-<<<<<<< HEAD
           {isLoaded && !fetchError && (products.filter((products) =>{
             if(searchTerm == "" ){
               return products
@@ -72,9 +71,6 @@ export default function Products({url}) {
           }).map((product) => <div><img src=""></img><li id="products" onClick={e => setSelectedProduct(product)} key={product.tuote_id}>{product.tuotenimi} </li></div>))}
           
       
-=======
-          {isLoaded && !fetchError}
->>>>>>> e4222c1 (Muutettu tuotteet näkyvyyttä bootstrap card komponentin avulla)
         
       </ul>
 
