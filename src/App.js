@@ -7,7 +7,12 @@ import Products from './pages/Products';
 import Category from './pages/Category';
 import Admin from './pages/Admin';
 import Contact from './pages/Contact';
+<<<<<<< HEAD
 import Discount from './pages/Discount';
+=======
+import Details from './pages/Details';
+
+>>>>>>> 9dee509 (Paranneltu 'kaikki tuotteet' sivua ja tehty siitä dynaamisempi)
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -58,6 +63,7 @@ export default function App() {
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
           <Route path="/discount" element={<Discount url={URL}/>}></Route>
+          <Route path="/product/:id" element={<Details url={URL} />}></Route>
         </Routes>
         <Header></Header>
         <Footer />

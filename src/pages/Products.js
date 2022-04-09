@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom";
 import Category from "./Category";
 import Details from './Details';
 
@@ -50,8 +51,6 @@ export default function Products({url}) {
 
 
   return (
-
-    
     <div>
       <h1>Tuotteet:</h1>
       <input type="text" placeholder='Etsi tuotenimellä' onChange={event =>{setSearchTerm(event.target.value)}}></input>
@@ -81,7 +80,8 @@ export default function Products({url}) {
 
       <div className="row g-2">
         {isLoaded && !fetchError && (products.map((product) =>
-          <div className="col-md-4 col-lg-3 d-flex">
+          
+          <div className="col-md-4 col-lg-3 d-flex" key={product.tuote_id}>
             <div className="card p-2">
               {/*<img src="https://via.placeholder.com/200x200.png" className="card-img-top h-100" alt="kuva1"></img>  */}
               <img src={product.kuvatiedosto} className="card-img-top img-fluid" alt="kuva1" style={{width: "auto", height: "200px", objectFit: "scale-down"}}></img>
@@ -89,19 +89,13 @@ export default function Products({url}) {
                 <h6 className="card-title">{product.tuotenimi}</h6>
                 <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
                 <div className="d-flex justify-content-between">
-                  <h5>{product.hinta}</h5>
-                  <a href="#" className="btn btn-primary"><i className="bi bi-cart-fill"></i></a>
+                  <h5><Link to={`/product/${product.tuote_id}`} className="stretched-link" style={{ textDecoration: "none", color: "inherit"}}>{product.hinta}</Link></h5>
                 </div>
               </div>
-            </div>
+            </div >
           </div>
         ))}
       </div>
-
-        
     </div>
-
-
-
   )
 }

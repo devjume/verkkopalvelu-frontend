@@ -1,14 +1,35 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link, useParams } from "react-router-dom";
 
-export default function Details(props) {
+export default function Details({url}) {
+
+  const [product, setProduct] = useState(undefined)
+  const {id} = useParams();
+
+
+  useEffect(() => {
+      axios.get(`${url}/product.php`, { params: {id: id}})
+        .then((response) => {
+          setProduct(response.data);
+        }).catch(error => {
+          alert(error.response ? error.response.data.error : error)
+        })
+
+  }, [])
+
+
+  if (product === undefined) {
+    return <h1>Lataa...</h1>
+  }
+
   return (
     <div id='detailsDiv'>
-      <h2>{props.tuotenimi}</h2>
-      <h3>Hinta: {props.hinta}€</h3>
-      <p>Speksit: {props.kuvaus}</p>
-      <p>Valmistaja: {props.valmistaja}</p>
-      <img src={props.kuva}/>
-      <a href="#" onClick={props.close}>Takaisin tuotteisiin</a>
+      <h2>{product.tuotenimi}</h2>
+      <h3>Hinta: {product.hinta}€</h3>
+      <p>Speksit: {product.kuvaus}</p>
+      <p>Valmistaja: {product.valmistaja}</p>
+      <img src={product.kuva}/>
     </div>
   );
 }
