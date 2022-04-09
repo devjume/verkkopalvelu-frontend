@@ -63,6 +63,7 @@ export default function Products({url}) {
           {fetchError && <li>{fetchError}</li>}
 
           {/* Kun tieto on ladattu eikä virheitä ole niin näytä haluttu elementti */}
+<<<<<<< HEAD
           {isLoaded && !fetchError && (products.filter((products) =>{
             if(searchTerm == "" ){
               return products
@@ -72,8 +73,32 @@ export default function Products({url}) {
           }).map((product) => <div><img src=""></img><li id="products" onClick={e => setSelectedProduct(product)} key={product.tuote_id}>{product.tuotenimi} </li></div>))}
           
       
+=======
+          {isLoaded && !fetchError}
+>>>>>>> e4222c1 (Muutettu tuotteet näkyvyyttä bootstrap card komponentin avulla)
         
       </ul>
+
+      <div className="row g-2">
+        {isLoaded && !fetchError && (products.map((product) =>
+          <div className="col-md-4 col-lg-3 d-flex">
+            <div className="card p-2">
+              {/*<img src="https://via.placeholder.com/200x200.png" className="card-img-top h-100" alt="kuva1"></img>  */}
+              <img src={product.kuvatiedosto} className="card-img-top img-fluid" alt="kuva1" style={{width: "auto", height: "200px", objectFit: "scale-down"}}></img>
+              <div className="card-body d-flex flex-column">
+                <h6 className="card-title">{product.tuotenimi}</h6>
+                <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
+                <div className="d-flex justify-content-between">
+                  <h5>{product.hinta}</h5>
+                  <a href="#" className="btn btn-primary"><i className="bi bi-cart-fill"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+        
     </div>
 
 
