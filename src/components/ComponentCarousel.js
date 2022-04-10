@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 import { useState, useEffect } from "react"
@@ -32,7 +33,17 @@ export default function ComponentCarousel({ categoryId, url, categoryName }) {
       <div className="carousel">
         <Carousel breakPoints={breakPoints}>
         {products?.map(product => (
-            <Item key={product.tuote_id} ><div><img className="carousel_img" src={product.kuvatiedosto}/> <p>{product.tuotenimi} {product.hinta}</p></div></Item>
+            <Item key={product.tuote_id} >
+              <div>
+                <img className="carousel_img" src={product.kuvatiedosto}/>
+              </div>
+              <div>
+                <Link to={`/product/carousel/${product.tuote_id}`}>
+                  {product.tuotenimi}
+                </Link> 
+                {" "+ product.hinta}
+              </div>
+            </Item>
           ))} 
         </Carousel>
       </div>
