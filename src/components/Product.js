@@ -43,6 +43,13 @@ export default function Product({url}) {
           <p>{product.kuvaus}</p>
         </div>
       </div>
+    <div>
+      <button>
+        <Link to={`/products`}>
+            Takaisin tuotteisiin
+        </Link>
+      </button>
+    </div>
     </>
     
   );

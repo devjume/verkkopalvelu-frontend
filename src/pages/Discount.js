@@ -3,7 +3,7 @@ import Category from '../components/Category';
 import DiscDetails from './DiscDetails';
 import { Link } from "react-router-dom";
 
-export default function Discount({url}) {
+export default function Discount({url, addToCart}) {
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -88,6 +88,7 @@ export default function Discount({url}) {
                 <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
                 <div className="d-flex justify-content-between">
                   <h5><Link to={`/product/${product.tuote_id}`} className="stretched-link" style={{ textDecoration: "none", color: "inherit"}}>{product.hinta}</Link></h5>
+                  <button type="button" className="btn btn-success" onClick={(e) => addToCart(product)} style={{ zIndex: 1 }}><i className="bi bi-cart-fill"></i></button>
                 </div>
               </div>
             </div >
