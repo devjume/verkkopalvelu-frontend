@@ -16,11 +16,11 @@ export default function Order ({cart, removeFromCart}) {
          <table className="table">
              <tbody>
                  {cart.map(product => {
-                   sum+=parseFloat(Item.hinta);
+                   sum+=parseFloat(product.hinta);
                    return(
                        <tr key={uuid()}>
-                           <td>{Item.tuotenimi}</td>
-                           <td>{Item.hinta}€</td>
+                           <td>{product.tuotenimi}</td>
+                           <td>{product.hinta}€</td>
                            <td><a href="#" onClick={() => removeFromCart(product)}>Poista</a></td>
                        </tr>
                     )
