@@ -31,16 +31,18 @@ export default function ComponentCarousel({ categoryId, url, categoryName, addTo
     <>
       <h1 style={{ textAlign: "center" }}>{categoryName}</h1>
       <div className="carousel">
-        <Carousel breakPoints={breakPoints}>
+        <Carousel breakPoints={breakPoints} showArrows={false}>
         {products?.map(product => (
             <Item key={product.tuote_id} >
               <div className="card p-2" style={{width: "300px", height: "350px"}}>
-              <img src={product.kuvatiedosto} className="card-img-top img-fluid" alt={product.tuotenimi} style={{width: "300px", height: "200px"}}></img>
+              <Link to={`/product/carousel/${product.tuote_id}`} draggable="false" style={{ textDecoration: "none", color: "inherit"}}>
+                <img src={product.kuvatiedosto} draggable="false" className="card-img-top img-fluid" alt={product.tuotenimi} style={{width: "300px", height: "200px"}}></img>
+              </Link>
               <div className="card-body d-flex flex-column">
                 <h6 className="card-title">{product.tuotenimi}</h6>
                 <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
                 <div className="d-flex justify-content-between">
-                  <h5><Link to={`/product/carousel/${product.tuote_id}`} className="stretched-link" style={{ textDecoration: "none", color: "inherit"}}>{product.hinta}</Link></h5>
+                  <h5>{product.hinta}</h5>
                 </div>
               </div>
             </div >
