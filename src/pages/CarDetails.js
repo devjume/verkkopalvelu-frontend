@@ -25,11 +25,14 @@ export default function Details({url}) {
 
   return (
     <div id='detailsDiv'>
-      <h2>{product.tuotenimi}</h2>
-      <h3>Hinta: {product.hinta}€</h3>
-      <p>Speksit: {product.kuvaus}</p>
-      <p>Valmistaja: {product.valmistaja}</p>
-      <img src={product.kuva}/>
+        <h2>{product.tuotenimi}</h2>
+        <h3>Hinta: {product.hinta}€</h3>
+        <p>Speksit: {product.kuvaus}</p>
+        <p>Valmistaja: {product.valmistaja}</p>
+        <img src={product.kuvatiedosto}/>
+        <Link to={`/`}>
+            <p>lähe pois!!</p>
+        </Link>
     </div>
   );
 }

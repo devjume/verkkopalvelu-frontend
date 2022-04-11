@@ -7,12 +7,14 @@ import Products from './pages/Products';
 import Category from './pages/Category';
 import Admin from './pages/Admin';
 import Contact from './pages/Contact';
+import Discount from './pages/Discount';
+import Details from './pages/Details';
+import CarDetails from './pages/CarDetails';
 
 import Order from './components/Order';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 
 const URL = "http://localhost/verkkopalvelu-backend";
 
@@ -67,6 +69,9 @@ export default function App() {
           <Route path="/contact" element={<Contact url={URL} />}></Route>
           <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
           
+          <Route path="/discount" element={<Discount url={URL}/>}></Route>
+          <Route path="/product/:id" element={<Details url={URL} />}></Route>
+          <Route path="/product/carousel/:id" element={<CarDetails url={URL} />}></Route>
         </Routes>
         <Header></Header>
         <Footer />

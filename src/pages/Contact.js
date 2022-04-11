@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react"
+import axios from 'axios';
 
 export default function Contact({url}) {
+
+  const [showMessage, setShowMessage] = useState(false);
+  const [responseMessage, setResponesMessage] = useState("");
+  const [timer, setTimer] = useState(null);
 
   const [contactName, setContactName] = useState("");
   const [contactEmail, setContactEmail] = useState("");
@@ -11,17 +16,45 @@ export default function Contact({url}) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   function submitForm(e) {
+    setTimer(setTimeout(() => setShowMessage(false), 2000));
     e.preventDefault();
-    console.log("Submitted");
+
+    const params = new URLSearchParams();
+    params.append("nimi", contactName)
+    params.append("sposti", contactEmail)
+    params.append("tilaunro", orderNumber)
+    params.append("viesti", message)
+
+    axios.post(`${url}/contact.php`, params)
+      .then((response) => {
+
+        setResponesMessage(response.data.message);
+        setShowMessage(true);
+
+        setContactName("");
+        setContactEmail("");
+        setOrderNumber("");
+        setMessage("")
+
+
+      }).catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      }) 
   }
 
   useEffect(() => {
+    return () => {
+      clearTimeout(timer);
+    }
 
-
-  }, []);
+  }, [showMessage]);
 
   return (
     <div className="container mb-3">
+      {showMessage && <div className="alert alert-success mt-2" role="alert">
+        {responseMessage}
+      </div>}
+
       <h3>Ota yhteyttä</h3>
       <form id="add-product" className='' onSubmit={submitForm}>
         <div className="col-3  form-floating">
@@ -33,11 +66,11 @@ export default function Contact({url}) {
           <label htmlFor="sposti" className='form-label'>Sähköposti</label>
         </div>
         <div className="col-3  form-floating mt-2">
-          <input type="text" name="tilausnumero" id="order-number" className='form-control' placeholder='Tilausnumero' value={orderNumber} onChange={e => setOrderNumber(e.target.value)} />
+          <input type="number" name="tilausnumero" id="order-number" className='form-control' min={0} placeholder='Tilausnumero' value={orderNumber} onChange={e => setOrderNumber(e.target.value)} />
           <label htmlFor="order-number" className='form-label'>Tilausnumero</label>
         </div>
         <div className="col-6  form-floating mt-2">
-          <textarea className="form-control" placeholder="Viesti..." id="message" style={{'height': '100px'}}></textarea>
+          <textarea className="form-control" placeholder="Viesti..." id="message" style={{ 'height': '100px' }} value={message} onChange={e => setMessage(e.target.value)} ></textarea>
           <label htmlFor="message" className='form-label'>Viesti</label>
         </div>
         <div className="col-auto d-flex align-items-end mt-2">
