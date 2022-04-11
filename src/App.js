@@ -3,17 +3,19 @@ import { useState, useEffect } from 'react';
 import {Routes, Route} from "react-router-dom";
 import axios from 'axios';
 import Home from "./pages/Home";
-import Category from './components/Category';
+
 import Admin from './pages/Admin';
 import Contact from './pages/Contact';
 import Discount from './pages/Discount';
-import Details from './pages/Details';
+
 import CarDetails from './pages/CarDetails';
 
 import Order from './components/Order';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Category from './components/Category';
+import Product from './components/Product';
 
 const URL = "http://localhost/verkkopalvelu-backend";
 
@@ -69,7 +71,7 @@ export default function App() {
           <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
           
           <Route path="/discount" element={<Discount url={URL}/>}></Route>
-          <Route path="/product/:id" element={<Details url={URL} />}></Route>
+          <Route path="/product/:id" element={<Product url={URL} />}></Route>
           <Route path="/product/carousel/:id" element={<CarDetails url={URL} addToCart={addToCart} />}></Route>
         </Routes>
         <Header></Header>

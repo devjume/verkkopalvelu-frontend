@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
-import Details from '../pages/Details';
+import Product from './Product';
 
 export default function Category({ url, addToCart, categoryId }) {
 
@@ -56,7 +56,7 @@ export default function Category({ url, addToCart, categoryId }) {
   }
 
   if (selectedProduct != null) {
-    return <Details
+    return <Product
       tuotenimi={selectedProduct.tuotenimi}
       hinta={selectedProduct.hinta}
       kuvaus={selectedProduct.kuvaus}
