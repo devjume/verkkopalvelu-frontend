@@ -53,7 +53,7 @@ export default function App() {
       <div className="container">
         <Navbar url={URL} categories={categories} cart={cart}/>
         <Routes>
-          <Route path="/" element={<Home url={URL} />} ></Route>
+          <Route path="/" element={<Home url={URL} addToCart={addToCart} />} ></Route>
           <Route path="/products" element={<Products url={URL}/>}></Route>
           {categories?.map(category => (
             <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} id={category.id}/>}></Route>
@@ -62,7 +62,7 @@ export default function App() {
           <Route path="/contact" element={<Contact url={URL} />}></Route>
           <Route path="/discount" element={<Discount url={URL}/>}></Route>
           <Route path="/product/:id" element={<Details url={URL} />}></Route>
-          <Route path="/product/carousel/:id" element={<CarDetails url={URL} />}></Route>
+          <Route path="/product/carousel/:id" element={<CarDetails url={URL} addToCart={addToCart} />}></Route>
         </Routes>
         <Header></Header>
         <Footer />

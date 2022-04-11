@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
 
-export default function Details({url}) {
+export default function CarDetails({url, addToCart}) {
 
   const [product, setProduct] = useState(undefined)
   const {id} = useParams();
@@ -30,6 +30,7 @@ export default function Details({url}) {
         <p>Speksit: {product.kuvaus}</p>
         <p>Valmistaja: {product.valmistaja}</p>
         <img src={product.kuvatiedosto}/>
+        <button className='btn btn-primary' type="button" onClick={(e) => addToCart(product)}>Add</button>
         <Link to={`/`}>
             <p>lähe pois!!</p>
         </Link>

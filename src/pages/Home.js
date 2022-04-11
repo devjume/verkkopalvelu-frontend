@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import axios from 'axios';
 import Banner from '../components/admin/Banner';
 
-export default function Home({url}) {
+export default function Home({url, addToCart}) {
   const [categories, setCategories] = useState()
    useEffect(() => {
 
@@ -21,7 +21,7 @@ export default function Home({url}) {
     <div>
       <Banner></Banner>
       {categories?.map(category => (
-            <ComponentCarousel key={category.id} url={url} categoryId={category.id} categoryName={category.nimi} />
+            <ComponentCarousel key={category.id} url={url} categoryId={category.id} addToCart={addToCart} categoryName={category.nimi} />
           ))}
     </div>
   )
