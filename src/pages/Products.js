@@ -1,9 +1,10 @@
+import axios from "axios";
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import Category from "./Category";
 import Details from './Details';
 
-export default function Products({url}) {
+export default function Products({url, categoryId}) {
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,24 +14,23 @@ export default function Products({url}) {
   const [categoryName, setCategoryName] = useState ('');
   const [searchTerm, setSearchTerm] = useState("")
 
-  async function fetchProducts() {
-    try {
-      const response = await fetch(`${url}/products.php`)
-      const data = await response.json();
+  async function fetchAllProducts() {
 
-      if (!response.ok) throw Error(data.error);
-
-      setProducts(data);
-      setFetchError(null);
-    } catch (error) {
-      setFetchError(error.message);
-    } finally {
-      setIsLoaded(true);
-    }
+    axios.get(`${url}/products.php`)
+      .then((response) => {
+        setProducts(response.data);
+        setFetchError(null);
+      }).catch(error => {
+        setFetchError(error.message);
+      }).finally(() => {
+        setIsLoaded(true);
+      })
   }
 
   useEffect(() => {
-    fetchProducts();
+    if (categoryId === 0 ) {
+      fetchAllProducts();
+    } 
   }, []);
 
 
@@ -55,7 +55,7 @@ export default function Products({url}) {
       <h1>Tuotteet:</h1>
       <div className="row mt-3">
         <div className="col-3">
-          <label for="search" class="form-label">Etsi tuotenimellä</label>
+          <label htmlFor="search" className="form-label">Etsi tuotenimellä</label>
           <input type="text" id="search" className="form-control" placeholder='Etsi tuotenimellä' onChange={event => { setSearchTerm(event.target.value) }}></input>
 
         </div>
