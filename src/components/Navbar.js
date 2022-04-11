@@ -8,8 +8,6 @@ import Products from '../pages/Products';
 export default function Navbar({url, categories, cart}) {
   const [items, setItems] = useState(categories);
   useEffect(() => {
-
-
   }, [items])
 
   return (
@@ -28,7 +26,7 @@ export default function Navbar({url, categories, cart}) {
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {items?.map(item => (
                   <li className="dropdown-item" key={item.id}>
-                    <Link to={`/${item.nimi}`} className="dropdown-item" aria-current="page">{item.nimi}</Link>
+                    <Link to={`/${(item.nimi).toLowerCase()}`} className="dropdown-item" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
                 <li><hr className="dropdown-divider"/></li>
