@@ -19,7 +19,7 @@ export default function ComponentCarousel({ categoryId, url, categoryName }) {
   useEffect(() => {
     const params = new URLSearchParams();
     params.append("id", categoryId);
-    axios.post(`${url}/category.php`, params)
+    axios.post(`${url}/carouselendpoint.php`, params)
       .then((response) => {
         setProducts(response.data);
       }).catch(error => {
