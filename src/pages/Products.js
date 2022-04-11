@@ -78,7 +78,7 @@ export default function Products({url}) {
           }
         }).map((product) =>
           <div className="col-md-4 col-lg-3 d-flex" key={product.tuote_id}>
-            <div className="card p-2">
+            <div className="card p-2 w-100">
               {/*<img src="https://via.placeholder.com/200x200.png" className="card-img-top h-100" alt="kuva1"></img>  */}
               <img src={product.kuvatiedosto} className="card-img-top img-fluid" alt={product.tuotenimi} style={{width: "auto", height: "200px", objectFit: "scale-down"}}></img>
               <div className="card-body d-flex flex-column">
