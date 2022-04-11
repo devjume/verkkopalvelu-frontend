@@ -13,7 +13,7 @@ const breakPoints = [
   { width: 1200, itemsToShow: 4 },
 ];
 
-export default function ComponentCarousel({ categoryId, url, categoryName }) {
+export default function ComponentCarousel({ categoryId, url, categoryName, addToCart }) {
   const [products, setProducts] = useState([]);  
 
   useEffect(() => {
@@ -34,15 +34,17 @@ export default function ComponentCarousel({ categoryId, url, categoryName }) {
         <Carousel breakPoints={breakPoints}>
         {products?.map(product => (
             <Item key={product.tuote_id} >
-              <div>
-                <img className="carousel_img" src={product.kuvatiedosto}/>
+              <div className="card p-2" style={{width: "300px", height: "350px"}}>
+              <img src={product.kuvatiedosto} className="card-img-top img-fluid" alt={product.tuotenimi} style={{width: "300px", height: "200px"}}></img>
+              <div className="card-body d-flex flex-column">
+                <h6 className="card-title">{product.tuotenimi}</h6>
+                <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
+                <div className="d-flex justify-content-between">
+                  <h5><Link to={`/product/carousel/${product.tuote_id}`} className="stretched-link" style={{ textDecoration: "none", color: "inherit"}}>{product.hinta}</Link></h5>
+                </div>
               </div>
-              <div>
-                <Link to={`/product/carousel/${product.tuote_id}`}>
-                  {product.tuotenimi}
-                </Link> 
-                {" "+ product.hinta}
-              </div>
+            </div >
+            <button className='btn btn-primary' type="button" onClick={(e) => addToCart(product)}>Add</button>
             </Item>
           ))} 
         </Carousel>
@@ -50,3 +52,6 @@ export default function ComponentCarousel({ categoryId, url, categoryName }) {
     </>
   );
 }
+
+            
+         
