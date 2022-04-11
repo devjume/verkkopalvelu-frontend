@@ -8,6 +8,7 @@ import Category from './pages/Category';
 import Admin from './pages/Admin';
 import Contact from './pages/Contact';
 
+import Order from './components/Order';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -44,6 +45,12 @@ export default function App() {
       localStorage.setItem('cart',JSON.stringify(newCart));
     }
 
+    function removeFromCart(product) {
+      const itemsWithoutRemoved = cart.filter(item => item.tuote_id !== product.tuote_id);
+      setCart(itemsWithoutRemoved);
+      localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
+    }
+
 
   return (
     <>
@@ -58,6 +65,7 @@ export default function App() {
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
+          <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
           
         </Routes>
         <Header></Header>
