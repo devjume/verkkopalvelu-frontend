@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Cart from './Cart';
-import Products from '../pages/Products';
 
 export default function Navbar({url, categories, cart}) {
   const [items, setItems] = useState(categories);

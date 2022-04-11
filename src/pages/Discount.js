@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import Category from "./Category";
+import Category from '../components/Category';
 import DiscDetails from './DiscDetails';
 
-export default function Products({url}) {
+export default function Discount({url}) {
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
