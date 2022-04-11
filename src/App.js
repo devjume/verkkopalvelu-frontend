@@ -11,6 +11,7 @@ import Discount from './pages/Discount';
 import Details from './pages/Details';
 import CarDetails from './pages/CarDetails';
 
+import Order from './components/Order';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -46,6 +47,12 @@ export default function App() {
       localStorage.setItem('cart',JSON.stringify(newCart));
     }
 
+    function removeFromCart(product) {
+      const itemsWithoutRemoved = cart.filter(item => item.tuote_id !== product.tuote_id);
+      setCart(itemsWithoutRemoved);
+      localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
+    }
+
 
   return (
     <>
@@ -60,6 +67,8 @@ export default function App() {
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
+          <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
+          
           <Route path="/discount" element={<Discount url={URL}/>}></Route>
           <Route path="/product/:id" element={<Details url={URL} />}></Route>
           <Route path="/product/carousel/:id" element={<CarDetails url={URL} addToCart={addToCart} />}></Route>
