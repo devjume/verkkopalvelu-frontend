@@ -19,8 +19,6 @@ export default function BreadCrumb({ url }) {
     return <li className="breadcrumb-item"><Link to={`/${path}`}>Etusivu</Link></li>
   }
 
-
-
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">

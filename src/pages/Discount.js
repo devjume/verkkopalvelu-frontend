@@ -58,7 +58,7 @@ export default function Discount({url, addToCart}) {
       <h1>Aletuotteet:</h1>
       <div className="row mt-3">
         <div className="col-3">
-          <label for="search" class="form-label">Etsi tuotenimellä</label>
+          <label htmlFor="search" className="form-label">Etsi tuotenimellä</label>
           <input type="text" id="search" className="form-control" placeholder='Etsi tuotenimellä' onChange={event => { setSearchTerm(event.target.value) }}></input>
         </div>
         
