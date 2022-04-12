@@ -35,7 +35,7 @@ export default function ComponentCarousel({ categoryId, url, categoryName, addTo
         {products?.map(product => (
             <Item key={product.tuote_id} >
               <div className="card p-2" style={{width: "300px", height: "22vw"}}>
-              <div class="embed-responsive embed-responsive-16by9">
+              <div className="embed-responsive embed-responsive-16by9">
                 <img src={product.kuvatiedosto} draggable="false" className="card-img-tops embed-responsive-item" alt={product.tuotenimi}></img>
               </div>
               
