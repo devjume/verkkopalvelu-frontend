@@ -40,7 +40,6 @@ export default function Category({ url, addToCart, categoryId }) {
   }
 
   useEffect(() => {
-    console.log(categoryId);
     // Kun categoryId on 0 niin näytä kaikki tuotteet. CategoryId=0 on käytössä vain "kaikki tuotteet" sivulla
     if (categoryId === 0) {
       fetchAllProducts();
@@ -67,6 +66,7 @@ export default function Category({ url, addToCart, categoryId }) {
 
 
   return (
+
     <div>
       <h1>Tuotteet:</h1>
       <div className="row mt-3">

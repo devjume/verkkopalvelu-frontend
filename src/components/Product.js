@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
 
+
+
 export default function Product({url}) {
 
   const [product, setProduct] = useState(undefined)
@@ -25,6 +27,7 @@ export default function Product({url}) {
 
   return (
     <>
+      
       <div className='row mt-4 px-4'>
         <h3>{product.tuotenimi}</h3>
         <div className='col-4 mt-3'>
