@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function DiscDetails(props) {
+  
   return (
     <div id='detailsDiv'>
       <h2>{props.tuotenimi}</h2>
@@ -9,7 +11,9 @@ export default function DiscDetails(props) {
       <p>Speksit: {props.kuvaus}</p>
       <p>Valmistaja: {props.valmistaja}</p>
       <img src={props.kuva}/>
-      <a href="#" onClick={props.close}>Takaisin aletuotteisiin</a>
+      <Link to={`/discount`}>
+            <p>takaisin aletuotteisiin</p>
+        </Link>
     </div>
   );
 }

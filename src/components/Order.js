@@ -26,7 +26,7 @@ export default function Order ({cart, removeFromCart}) {
                     )
                     })}
                     <tr key={uuid()}>
-                        <td>{sum.toFixed(2)} €</td>
+                        <td>Yhteishinta {sum.toFixed(2)} €</td>
                         <td></td>
                     </tr>
              </tbody>
