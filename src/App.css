@@ -82,4 +82,9 @@
 .rec.rec-arrow:disabled {
   cursor: auto;
 }
+.card-img-tops {
+  width: 100%;
+  height: 12vw;
+  object-fit: cover;
+}
 

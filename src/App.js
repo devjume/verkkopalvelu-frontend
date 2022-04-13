@@ -3,17 +3,19 @@ import { useState, useEffect } from 'react';
 import {Routes, Route} from "react-router-dom";
 import axios from 'axios';
 import Home from "./pages/Home";
-import Products from './pages/Products';
-import Category from './pages/Category';
+
 import Admin from './pages/Admin';
 import Contact from './pages/Contact';
 import Discount from './pages/Discount';
-import Details from './pages/Details';
+
 import CarDetails from './pages/CarDetails';
 
+import Order from './components/Order';
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Category from './components/Category';
+import Product from './components/Product';
 
 const URL = "http://localhost/verkkopalvelu-backend";
 
@@ -46,6 +48,12 @@ export default function App() {
       localStorage.setItem('cart',JSON.stringify(newCart));
     }
 
+    function removeFromCart(product) {
+      const itemsWithoutRemoved = cart.filter(item => item.tuote_id !== product.tuote_id);
+      setCart(itemsWithoutRemoved);
+      localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
+    }
+
 
   return (
     <>
@@ -53,16 +61,18 @@ export default function App() {
       <div className="container">
         <Navbar url={URL} categories={categories} cart={cart}/>
         <Routes>
-          <Route path="/" element={<Home url={URL} />} ></Route>
-          <Route path="/products" element={<Products url={URL}/>}></Route>
+          <Route path="/" element={<Home url={URL} addToCart={addToCart} />} ></Route>
+          <Route path="/products" element={<Category url={URL} addToCart={addToCart} categoryId={0}/>}></Route>
           {categories?.map(category => (
-            <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} id={category.id}/>}></Route>
+            <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} categoryId={category.id}/>}></Route>
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
-          <Route path="/discount" element={<Discount url={URL}/>}></Route>
-          <Route path="/product/:id" element={<Details url={URL} />}></Route>
-          <Route path="/product/carousel/:id" element={<CarDetails url={URL} />}></Route>
+          <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
+          
+          <Route path="/discount" element={<Discount url={URL} addToCart={addToCart}/>}></Route>
+          <Route path="/product/:id" element={<Product url={URL} />}></Route>
+          <Route path="/product/carousel/:id" element={<CarDetails url={URL} addToCart={addToCart} />}></Route>
         </Routes>
         <Header></Header>
         <Footer />
