@@ -54,7 +54,6 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount }) 
   }
 
   useEffect(() => {
-    console.log(fetchDiscount)
     // Kun categoryId on 0 niin näytä kaikki tuotteet. CategoryId=0 on käytössä vain "kaikki tuotteet" sivulla
     if (categoryId === 0) {
       fetchAllProducts();

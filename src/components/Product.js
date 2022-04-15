@@ -41,9 +41,9 @@ export default function Product({url}) {
     <>
       <div className='row mt-4 px-4'>
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
+          <ol className="breadcrumb">
             {/* Palaa takaisin edelliselle sivulle käyttämällä react-router-dom useNavigate API:ta */}
-            <li class="breadcrumb-item"><button type="button" className="btn btn-link" onClick={() => navigate(-1)}>Takaisin tuotteisiin</button></li>
+            <li className="breadcrumb-item"><button type="button" className="btn btn-info" onClick={() => navigate(-1)}>Takaisin tuotteisiin</button></li>
           </ol>
         </nav>
         <div className='col-4 mt-3'>
