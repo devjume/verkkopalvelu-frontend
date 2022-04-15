@@ -5,7 +5,7 @@ import Product from './Product';
 
 import ProductCard from "./ProductCard";
 
-export default function Category({ url, addToCart, categoryId }) {
+export default function Category({ url, addToCart, categoryId, fetchDiscount }) {
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -17,6 +17,18 @@ export default function Category({ url, addToCart, categoryId }) {
 
   async function fetchAllProducts() {
     axios.get(`${url}/products.php`)
+      .then((response) => {
+        setProducts(response.data);
+        setFetchError(null);
+      }).catch(error => {
+        setFetchError(error.message);
+      }).finally(() => {
+        setIsLoaded(true);
+      })
+  }
+
+  async function fetchDiscountProducts() {
+    axios.get(`${url}/discount.php`)
       .then((response) => {
         setProducts(response.data);
         setFetchError(null);
@@ -42,9 +54,12 @@ export default function Category({ url, addToCart, categoryId }) {
   }
 
   useEffect(() => {
+    console.log(fetchDiscount)
     // Kun categoryId on 0 niin näytä kaikki tuotteet. CategoryId=0 on käytössä vain "kaikki tuotteet" sivulla
     if (categoryId === 0) {
       fetchAllProducts();
+    } else if (fetchDiscount === true) {
+      fetchDiscountProducts();
     } else {
       fetchCategoryProducts();
     }

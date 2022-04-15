@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 
 
@@ -10,6 +10,8 @@ export default function Product({url}) {
   const [discountPrice, setDiscountPrice] = useState(null);
 
   const {id} = useParams();
+
+  let navigate = useNavigate();
 
 
   useEffect(() => {
@@ -38,6 +40,12 @@ export default function Product({url}) {
   return (
     <>
       <div className='row mt-4 px-4'>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            {/* Palaa takaisin edelliselle sivulle käyttämällä react-router-dom useNavigate API:ta */}
+            <li class="breadcrumb-item"><button type="button" className="btn btn-link" onClick={() => navigate(-1)}>Takaisin tuotteisiin</button></li>
+          </ol>
+        </nav>
         <div className='col-4 mt-3'>
           <img src={product.kuvatiedosto} className="" alt={product.tuotenimi} style={{ width: "auto", height: "350px", objectFit: "scale-down" }}></img>
         </div>
@@ -53,13 +61,6 @@ export default function Product({url}) {
           <p>{product.kuvaus}</p>
         </div>
       </div>
-    <div>
-      <button>
-        <Link to={`/products`}>
-            Takaisin tuotteisiin
-        </Link>
-      </button>
-    </div>
     </>
     
   );
