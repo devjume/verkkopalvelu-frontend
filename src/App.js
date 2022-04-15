@@ -12,7 +12,6 @@ import CarDetails from './pages/CarDetails';
 
 import Order from './components/Order';
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Category from './components/Category';
 import Product from './components/Product';
@@ -56,7 +55,7 @@ export default function App() {
 
 
   return (
-    <>
+    <div className='d-flex flex-column h-100'>
     { isLoaded && 
       <div className="container">
         <Navbar url={URL} categories={categories} cart={cart}/>
@@ -75,10 +74,9 @@ export default function App() {
           <Route path="/product/:id" element={<Product url={URL} />}></Route>
           <Route path="/product/carousel/:id" element={<CarDetails url={URL} addToCart={addToCart} />}></Route>
         </Routes>
-        <Header></Header>
-        <Footer />
       </div> }
-    </>
+      <Footer />
+    </div>
 
   );
 }
