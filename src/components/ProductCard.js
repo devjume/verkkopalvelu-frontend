@@ -20,7 +20,7 @@ export default function ProductCard({product, addToCart}) {
           <h6 className="card-title">{product.tuotenimi}</h6>
           <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
           <div className="d-flex justify-content-between">
-            <h5><Link to={`/product/${product.tuote_id}`} className="stretched-link" style={{ textDecoration: "none", color: "inherit" }}>{discountPrice === null ? product.hinta : discountPrice}€</Link> {discountPrice !== null && <span className="linethrough fw-normal">{product.hinta}€</span>} </h5>
+            <h5><Link to={`/product/${product.tuote_id}`} className="stretched-link" style={{ textDecoration: "none", color: "inherit" }}>{discountPrice === null ? product.hinta : discountPrice}€</Link> {discountPrice !== null && <s className="fs-6 fw-normal">{product.hinta}€</s>} </h5>
             <button type="button" className="btn btn-success" onClick={(e) => addToCart(product)} style={{ zIndex: 1 }}><i className="bi bi-cart-fill"></i></button>
           </div>
         </div>

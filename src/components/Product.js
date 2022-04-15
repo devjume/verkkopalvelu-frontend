@@ -52,7 +52,7 @@ export default function Product({url}) {
         <div className='col-4 offset-2 mt-3'>
           <h4>{product.tuotenimi}</h4>
           <h6>Valmistaja: {product.valmistaja}</h6>
-          <h3>{discountPrice === null ? product.hinta : discountPrice}€ {discountPrice !== null && <span className="linethrough fw-normal">{product.hinta}€</span>}</h3>
+          <h3>{discountPrice === null ? product.hinta : discountPrice}€ {discountPrice !== null && <s className="fs-5 fw-normal">{product.hinta}€</s>}</h3>
         </div>
       </div>
       <div className='row mt-4 px-4'>
