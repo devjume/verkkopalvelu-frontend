@@ -39,7 +39,7 @@ export default function ComponentCarousel({ categoryId, url, categoryName, addTo
                 <img src={product.kuvatiedosto} draggable="false" className="card-img-tops embed-responsive-item" alt={product.tuotenimi}></img>
               </div>
               
-              <Link to={`/product/carousel/${product.tuote_id}`} draggable="false" style={{ textDecoration: "none", color: "inherit"}}>
+              <Link to={`/product/${product.tuote_id}`} draggable="false" style={{ textDecoration: "none", color: "inherit"}}>
               <div className="card-body d-flex flex-column">
                 <h6 className="card-title text-truncate" >{product.tuotenimi}</h6>
                 <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
