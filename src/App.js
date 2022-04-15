@@ -53,14 +53,15 @@ export default function App() {
       localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
     }
 
-
   return (
     <div className='d-flex flex-column h-100'>
-    { isLoaded && 
-      <div className="container">
-        <Navbar url={URL} categories={categories} cart={cart}/>
+      {isLoaded && 
+      <>
+      <Navbar categories={categories} cart={cart} />
+    
+      <div className="container mb-5">
         <Routes>
-          <Route path="/" element={<Home url={URL} addToCart={addToCart} />} ></Route>
+          <Route path="/" element={<Home url={URL} addToCart={addToCart} categories={categories} />} ></Route>
           <Route path="/products" element={<Category url={URL} addToCart={addToCart} categoryId={0}/>}></Route>
           <Route path="/discount" element={<Category url={URL} addToCart={addToCart} fetchDiscount={true}/>}></Route>
           {categories?.map(category => (
@@ -74,10 +75,10 @@ export default function App() {
           <Route path="/product/:id" element={<Product url={URL} />}></Route>
           <Route path="/product/carousel/:id" element={<CarDetails url={URL} addToCart={addToCart} />}></Route>
         </Routes>
-      </div> }
-      <Footer />
-    </div>
-
+      </div> 
+        <Footer /> </>}
+    </div> 
+    
   );
 }
 
