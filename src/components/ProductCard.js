@@ -13,9 +13,8 @@ export default function ProductCard({product, addToCart}) {
   }, []);
 
   return (
-    <div className="col-md-4 col-lg-3 d-flex" >
-      <div className="card p-2 w-100">
-        <img src={product.kuvatiedosto} className="card-img-top img-fluid" alt={product.tuotenimi} style={{ width: "auto", height: "200px", objectFit: "scale-down" }}></img>
+      <div className="card w-100">
+        <img src={product.kuvatiedosto} className="card-img-top img-fluid my-2" alt={product.tuotenimi} style={{ width: "auto", height: "200px", objectFit: "scale-down" }}></img>
         <div className="card-body d-flex flex-column">
           <h6 className="card-title">{product.tuotenimi}</h6>
           <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
@@ -24,7 +23,6 @@ export default function ProductCard({product, addToCart}) {
             <button type="button" className="btn btn-success" onClick={(e) => addToCart(product)} style={{ zIndex: 1 }}><i className="bi bi-cart-fill"></i></button>
           </div>
         </div>
-      </div >
     </div>
   )
 }

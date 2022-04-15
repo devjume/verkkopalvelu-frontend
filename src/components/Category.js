@@ -100,6 +100,7 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount }) 
 
       {/* Kun tieto on ladattu eikä virheitä ole niin näytä haluttu elementti */}
       <div className="row g-2 mt-3">
+        
         {isLoaded && !fetchError && (products.filter((products) => {
           if (searchTerm == "") {
             return products
@@ -107,8 +108,11 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount }) 
             return products
           }
         }).map((product) =>
+          <div className="col-md-4 col-lg-3 d-flex" >
           <ProductCard product={product} addToCart={addToCart} key={product.tuote_id} />
+          </div>
         ))}
+        
       </div>
     </div>
   )
