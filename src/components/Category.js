@@ -93,7 +93,7 @@ export default function Category({ url, addToCart, categoryId }) {
             return products
           }
         }).map((product) =>
-          <ProductCard product={product} addToCart={addToCart} />
+          <ProductCard product={product} addToCart={addToCart} key={product.tuote_id} />
         ))}
       </div>
     </div>
