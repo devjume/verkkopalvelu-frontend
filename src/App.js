@@ -59,7 +59,7 @@ export default function App() {
       setCart(itemsWithoutRemoved);
       localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
     }
-  
+    // Changing the amount in cart
     function updateAmount(amount, product) {
       product.amount = amount;
       const index = cart.findIndex((item => item.tuote_id === product.tuote_id));
