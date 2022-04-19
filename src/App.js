@@ -53,13 +53,13 @@ export default function App() {
       localStorage.setItem('cart',JSON.stringify(newCart));
     }
   }
-
+     // Removing product from cart
     function removeFromCart(product) {
       const itemsWithoutRemoved = cart.filter(item => item.tuote_id !== product.tuote_id);
       setCart(itemsWithoutRemoved);
       localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
     }
-  
+    // Changing the amount in cart
     function updateAmount(amount, product) {
       product.amount = amount;
       const index = cart.findIndex((item => item.tuote_id === product.tuote_id));

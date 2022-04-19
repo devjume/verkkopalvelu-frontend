@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 import uuid from 'react-uuid';
 
 import Item from './Item';
 import axios from 'axios';
+
 
 export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
   let sum1 = 0;
   
   const [inputs,_] = useState([]);
   const [inputIndex, setInputIndex] = useState(-1);
+
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -31,7 +33,7 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
       if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex].current !== null) {
           inputs[inputIndex].current.focus();
       }
-  }, [cart]) 
+  }, [cart, inputs, inputIndex]) 
   
      let sum = 0;
  
@@ -75,15 +77,15 @@ if(finished === false){
          <table className="table">
              <tbody>
                  {cart.map((product, index) => {
-                   sum+=parseFloat(product.hinta);
+                   sum+=parseFloat(product.hinta) * parseInt(product.amount);
                    return(
                        <tr key={uuid()}>
                            <td>{product.tuotenimi}</td>
                            <td>{product.hinta}€</td>
                            <td>
-                               <input ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product)}></input>
+                               <input ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
                            </td>
-                           <td><a href="#" onClick={() => removeFromCart(product)}>Poista</a></td>
+                           <td><a href="/#" onClick={() => removeFromCart(product)}>Poista</a></td>
                        </tr>
                     )
                     })}
