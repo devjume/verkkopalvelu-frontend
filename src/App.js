@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, createSearchParams} from "react-router-dom";
 import axios from 'axios';
 import Home from "./pages/Home";
 
@@ -41,18 +41,38 @@ export default function App() {
      }
    }, [])
 
+   //Callback function add product to cart.
     function addToCart(product) {
-      console.log(product)
+      if (cart.some(item => item.tuote_id === product.tuote_id)) {
+        const existingProduct = cart.filter(item => item.tuote_id === product.tuote_id);
+        updateAmount(parseInt(existingProduct[0].amount) +1,product);
+      }
+      else{
+      product["amount"] = 1
       const newCart = [...cart,product]; 
       setCart(newCart);
       localStorage.setItem('cart',JSON.stringify(newCart));
     }
+  }
 
     function removeFromCart(product) {
       const itemsWithoutRemoved = cart.filter(item => item.tuote_id !== product.tuote_id);
       setCart(itemsWithoutRemoved);
       localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
     }
+  
+    function updateAmount(amount, product) {
+      product.amount = amount;
+      const index = cart.findIndex((item => item.tuote_id === product.tuote_id));
+      const modifiedCart = Object.assign([...cart],{[index]: product});
+      setCart(modifiedCart);
+      localStorage.setItem('cart', JSON.stringify(modifiedCart));
+    }
+  
+    
+  
+    
+      
 
 
   return (
