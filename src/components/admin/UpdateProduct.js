@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 export default function UpdateProduct({ url }) {
 
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(0);
   const [PrevInfLoop, setPrevInfLoop] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [timer, setTimer] = useState(null);
@@ -97,16 +97,16 @@ export default function UpdateProduct({ url }) {
 
   return (
     <>
-     <form id="update-product" className=''  onSubmit={savePick}>
-  <div className="col-3">
-    <label htmlFor="tuote" className="form-label">Tuote:</label>
-    <select id="tuote" onChange={e => setSelectedProduct(e.target.value)}>
-    {products?.map(product => (
-            <option name="tuoteryhma"  value={product.tuote_id}  className="dropdown-item" key={product.tuote_id}>
-              {product.tuotenimi}
-            </option>))}
-    </select>
-    <button type="submit" className='btn btn-primary'>Valitse</button>
+      <form id="update-product" className=''  onSubmit={savePick}>
+        <div className="col-3">
+        <label htmlFor="tuote" className="form-label">Tuote:</label>
+        <select id="tuote" onChange={e => setSelectedProduct(e.target.value)}>
+        {products?.map(product => (
+          <option name="tuoteryhma"  value={product.tuote_id}  className="dropdown-item" key={product.tuote_id}>
+            {product.tuotenimi}
+          </option>))}
+        </select>
+      <button type="submit" className='btn btn-primary'>Valitse</button>
   </div>
   </form>
 
