@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import uuid from 'react-uuid';
-import { useState, useEffect } from "react"
-
 
 import Item from './Item';
 import axios from 'axios';
 
-export default function Order ({cart,removeFromCart,updateAmount}) {
+export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
   let sum1 = 0;
   
   const [inputs,_] = useState([]);
