@@ -89,7 +89,7 @@ export default function App() {
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
-          <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
+          <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} />} />
           
           {/* <Route path="/discount" element={<Discount url={URL} addToCart={addToCart}/>}></Route> */}
           <Route path="/product/:id" element={<Product url={URL} />}></Route>
