@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return(
-    <footer className='text-white container-fluid row p-3'>
+    <footer className='footer mt-auto text-white container-fluid row p-3'>
       <div className='col-md-4'>
       <ul className='list-group'>
       <li className='list-group-item text-white'>Yhteystiedot:</li>

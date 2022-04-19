@@ -4,14 +4,17 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Cart from './Cart';
 
-export default function Navbar({url, categories, cart}) {
+export default function Navbar({categories, cart}) {
+
   const [items, setItems] = useState(categories);
+
   useEffect(() => {
-  }, [items])
+
+  }, [])
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+      <div className="container">
         <Link to={`/`}  className="nav-link navbar-brand" aria-current="page">Etusivu</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

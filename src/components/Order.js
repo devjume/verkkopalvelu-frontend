@@ -33,7 +33,7 @@ export default function Order ({cart,removeFromCart,updateAmount}) {
  
  return (
      <div>
-         <h3 classname="Header">Tavarat ostokorissa</h3>
+         <h3 className="Header">Tavarat ostokorissa</h3>
          <table className="table">
              <tbody>
                  {cart.map((product, index) => {
