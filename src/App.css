@@ -91,4 +91,16 @@
   height: 12vw;
   object-fit: cover;
 }
+.navbar {
+  background-color: #2C302E;
+}
+.navbarimg {
+  height: 40px;
+}
+body {
+  background-color: #C4C4C4;
+}
+main {
+  background-color: #FFFFFF;
+}
 
