@@ -42,7 +42,6 @@
   }
   
   .carousel {
-    font-family: 'Times New Roman', Times, serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,6 +50,11 @@
     height: 200px;
     pointer-events: none;
   }
+
+/*carousel item*/
+.rec-item-wrapper {
+  height: 100%;
+}
 
 /*carousel buttons*/
 .rec.rec-dot {

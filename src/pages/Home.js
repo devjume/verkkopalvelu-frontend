@@ -4,23 +4,15 @@ import { useState, useEffect } from "react"
 import axios from 'axios';
 import Banner from '../components/admin/Banner';
 
-export default function Home({url, addToCart}) {
-  const [categories, setCategories] = useState()
+export default function Home({url, addToCart, categories}) {
+  const [twoCategories, setTwoCategories] = useState(categories.slice(0,2))
    useEffect(() => {
-
-     axios.get(`${url}/categories.php`)
-       .then((response) => {
-         let twoCategories = response.data.slice(0,2)
-         setCategories(twoCategories)
-       }).catch(error => {
-         alert(error.response ? error.response.data.error : error)
-       })
    }, [])
 
   return (
     <div>
       <Banner></Banner>
-      {categories?.map(category => (
+      {twoCategories?.map(category => (
             <ComponentCarousel key={category.id} url={url} categoryId={category.id} addToCart={addToCart} categoryName={category.nimi} />
           ))}
     </div>

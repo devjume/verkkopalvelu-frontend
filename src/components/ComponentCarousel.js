@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
 import Carousel from "react-elastic-carousel";
+import ProductCard from "./ProductCard";
 import Item from "./Item";
 import { useState, useEffect } from "react"
 import axios from 'axios';
@@ -31,15 +32,19 @@ export default function ComponentCarousel({ categoryId, url, categoryName, addTo
     <>
       <h1 style={{ textAlign: "center" }}>{categoryName}</h1>
       <div className="carousel">
-        <Carousel breakPoints={breakPoints} /*autoPlaySpeed={10000} enableAutoPlay={true}*/ showArrows={false}>
+        <Carousel breakPoints={breakPoints} itemPadding={[0, 5]}  /*autoPlaySpeed={10000} enableAutoPlay={true}*/ showArrows={false}>
         {products?.map(product => (
-            <Item key={product.tuote_id} >
+          <div className="col-12 d-flex" >
+            <ProductCard product={product} addToCart={addToCart} key={product.tuote_id} />
+          </div>
+        ))} 
+            {/* <Item key={product.tuote_id} >
               <div className="card p-2" style={{width: "300px", height: "22vw"}}>
               <div className="embed-responsive embed-responsive-16by9">
                 <img src={product.kuvatiedosto} draggable="false" className="card-img-tops embed-responsive-item" alt={product.tuotenimi}></img>
               </div>
-              
-              <Link to={`/product/carousel/${product.tuote_id}`} draggable="false" style={{ textDecoration: "none", color: "inherit"}}>
+
+              <Link to={`/product/${product.tuote_id}`} draggable="false" style={{ textDecoration: "none", color: "inherit"}}>
               <div className="card-body d-flex flex-column">
                 <h6 className="card-title text-truncate" >{product.tuotenimi}</h6>
                 <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>
@@ -50,8 +55,8 @@ export default function ComponentCarousel({ categoryId, url, categoryName, addTo
               </Link>
               <button className='btn btn-primary' type="button" onClick={(e) => addToCart(product)}>Add</button>
             </div >
-            </Item>
-          ))} 
+        </Item> */}
+        
         </Carousel>
       </div>
     </>

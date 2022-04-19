@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, createSearchParams} from "react-router-dom";
 import axios from 'axios';
 import Home from "./pages/Home";
 
@@ -12,7 +12,6 @@ import CarDetails from './pages/CarDetails';
 
 import Order from './components/Order';
 import Navbar from "./components/Navbar";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Category from './components/Category';
 import Product from './components/Product';
@@ -41,28 +40,50 @@ export default function App() {
      }
    }, [])
 
+   //Callback function add product to cart.
     function addToCart(product) {
-      console.log(product)
+      if (cart.some(item => item.tuote_id === product.tuote_id)) {
+        const existingProduct = cart.filter(item => item.tuote_id === product.tuote_id);
+        updateAmount(parseInt(existingProduct[0].amount) +1,product);
+      }
+      else{
+      product["amount"] = 1
       const newCart = [...cart,product]; 
       setCart(newCart);
       localStorage.setItem('cart',JSON.stringify(newCart));
     }
+  }
 
     function removeFromCart(product) {
       const itemsWithoutRemoved = cart.filter(item => item.tuote_id !== product.tuote_id);
       setCart(itemsWithoutRemoved);
       localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
     }
-
+  
+    function updateAmount(amount, product) {
+      product.amount = amount;
+      const index = cart.findIndex((item => item.tuote_id === product.tuote_id));
+      const modifiedCart = Object.assign([...cart],{[index]: product});
+      setCart(modifiedCart);
+      localStorage.setItem('cart', JSON.stringify(modifiedCart));
+    }
+  
+    
+  
+    
+      
 
   return (
-    <>
-    { isLoaded && 
-      <div className="container">
-        <Navbar url={URL} categories={categories} cart={cart}/>
+    <div className='d-flex flex-column h-100'>
+      {isLoaded && 
+      <>
+      <Navbar categories={categories} cart={cart} />
+    
+      <div className="container mb-5">
         <Routes>
-          <Route path="/" element={<Home url={URL} addToCart={addToCart} />} ></Route>
+          <Route path="/" element={<Home url={URL} addToCart={addToCart} categories={categories} />} ></Route>
           <Route path="/products" element={<Category url={URL} addToCart={addToCart} categoryId={0}/>}></Route>
+          <Route path="/discount" element={<Category url={URL} addToCart={addToCart} fetchDiscount={true}/>}></Route>
           {categories?.map(category => (
             <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} categoryId={category.id}/>}></Route>
           ))}
@@ -70,15 +91,14 @@ export default function App() {
           <Route path="/contact" element={<Contact url={URL} />}></Route>
           <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} />} />
           
-          <Route path="/discount" element={<Discount url={URL} addToCart={addToCart}/>}></Route>
+          {/* <Route path="/discount" element={<Discount url={URL} addToCart={addToCart}/>}></Route> */}
           <Route path="/product/:id" element={<Product url={URL} />}></Route>
-          <Route path="/product/carousel/:id" element={<CarDetails url={URL} addToCart={addToCart} />}></Route>
+          <Route path="/product/carousel/:id" element={<Product url={URL} addToCart={addToCart} />}></Route>
         </Routes>
-        <Header></Header>
-        <Footer />
-      </div> }
-    </>
-
+      </div> 
+        <Footer /> </>}
+    </div> 
+    
   );
 }
 
