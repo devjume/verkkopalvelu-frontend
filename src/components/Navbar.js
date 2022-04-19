@@ -25,10 +25,10 @@ export default function Navbar({categories, cart}) {
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Kategoriat
               </a>
-              <ul className="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu bg-dark" aria-labelledby="navbardarkDropdown">
                 {items?.map(item => (
-                  <li className="dropdown-item bg-dark" key={item.id}>
-                    <Link to={`/${(item.nimi).toLowerCase()}`} className="dropdown-item text-white" aria-current="page">{item.nimi}</Link>
+                  <li className="dropdown-item-dark" key={item.id}>
+                    <Link to={`/${(item.nimi).toLowerCase()}`} className="dropdown-item" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
                 <li><hr className="dropdown-divider"/></li>
