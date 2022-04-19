@@ -33,7 +33,7 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
       if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex].current !== null) {
           inputs[inputIndex].current.focus();
       }
-  }, [cart]) 
+  }, [cart, inputs, inputIndex]) 
   
      let sum = 0;
  
