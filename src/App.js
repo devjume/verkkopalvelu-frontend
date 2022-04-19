@@ -53,7 +53,7 @@ export default function App() {
       localStorage.setItem('cart',JSON.stringify(newCart));
     }
   }
-
+     // Removing product from cart
     function removeFromCart(product) {
       const itemsWithoutRemoved = cart.filter(item => item.tuote_id !== product.tuote_id);
       setCart(itemsWithoutRemoved);

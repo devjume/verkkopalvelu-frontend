@@ -34,7 +34,7 @@ export default function ComponentCarousel({ categoryId, url, categoryName, addTo
       <div className="carousel">
         <Carousel breakPoints={breakPoints} itemPadding={[0, 5]}  /*autoPlaySpeed={10000} enableAutoPlay={true}*/ showArrows={false}>
         {products?.map(product => (
-          <div className="col-12 d-flex" >
+          <div className="col-12 d-flex" key={product.tuote_id}>
             <ProductCard product={product} addToCart={addToCart} key={product.tuote_id} />
           </div>
         ))} 
