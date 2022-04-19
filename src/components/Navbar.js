@@ -28,11 +28,11 @@ export default function Navbar({categories, cart}) {
               <ul className="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                 {items?.map(item => (
                   <li className="dropdown-item bg-dark" key={item.id}>
-                    <Link to={`/${(item.nimi).toLowerCase()}`} className="dropdown-item" aria-current="page">{item.nimi}</Link>
+                    <Link to={`/${(item.nimi).toLowerCase()}`} className="dropdown-item text-white" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
                 <li><hr className="dropdown-divider"/></li>
-                <li><Link to="/products" className="dropdown-item" aria-current="page">Kaikki tuotteet</Link></li>
+                <li><Link to="/products" className="dropdown-item text-white" aria-current="page">Kaikki tuotteet</Link></li>
               </ul>
             </li>
             <li className='nav-item'><Link to="/contact" className="nav-link"><i className='bi bi-chat-dots-fill'></i></Link></li>
