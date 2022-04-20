@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 export default function UpdateProduct({ url }) {
 
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(1);
   const [PrevInfLoop, setPrevInfLoop] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const [timer, setTimer] = useState(null);
@@ -60,23 +60,13 @@ export default function UpdateProduct({ url }) {
 
     e.preventDefault();
 
-    const params = new URLSearchParams();
-    params.append("id", selectedProduct)
-    axios.post(`${url}/productPOST.php`, params)
-     .then((response) => {
-        
-      console.log(response.data.hinta)
-      setProductName(response.data.tuotenimi)
-      setProductPrice(response.data.hinta)
-      setSalePrice(response.data.alehinta)
-      setProductDesc(response.data.kuvaus)
-      setProductSupplier(response.data.valmistaja)
-      setProductImg(response.data.kuvatiedosto)
-        
-       
-     }).catch(error => {
-       alert(error.response ? error.response.data.error : error)
-     }) 
+  
+      setProductName(products[selectedProduct-1].tuotenimi)
+      setProductPrice(products[selectedProduct-1].hinta)
+      setSalePrice(products[selectedProduct-1].alehinta)
+      setProductDesc(products[selectedProduct-1].kuvaus)
+      setProductSupplier(products[selectedProduct-1].valmistaja)
+      setProductImg(products[selectedProduct-1].kuvatiedosto)
   }
 
   useEffect(() => {
@@ -99,16 +89,16 @@ export default function UpdateProduct({ url }) {
     <>
       <form id="update-product" className=''  onSubmit={savePick}>
         <div className="col-3">
-        <label htmlFor="tuote" className="form-label">Tuote:</label>
-        <select id="tuote" onChange={e => setSelectedProduct(e.target.value)}>
-        {products?.map(product => (
-          <option name="tuoteryhma"  value={product.tuote_id}  className="dropdown-item" key={product.tuote_id}>
-            {product.tuotenimi}
-          </option>))}
-        </select>
-      <button type="submit" className='btn btn-primary'>Valitse</button>
-  </div>
-  </form>
+          <label htmlFor="tuote" className="form-label">Tuote:</label>
+          <select id="tuote" onChange={e => setSelectedProduct(e.target.value)}>
+          {products?.map(product => (
+            <option name="tuoteryhma"  value={product.tuote_id}  className="dropdown-item" key={product.tuote_id}>
+              {product.tuotenimi}
+            </option>))}
+          </select>
+          <button type="submit" className='btn btn-primary'>Valitse</button>
+        </div>
+      </form>
 
   <form id="add-product" className=''  onSubmit={muokkaa}>
         <div className="col-4  form-floating">
