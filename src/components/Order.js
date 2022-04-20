@@ -83,9 +83,9 @@ if(finished === false){
                            <td>{product.tuotenimi}</td>
                            <td>{product.hinta}€</td>
                            <td>
-                               <input ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
+                               <input type={"number"} min={"1"} max={"1000"} ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
                            </td>
-                           <td><a href="/#" onClick={() => removeFromCart(product)}>Poista</a></td>
+                           <td><button onClick={() => removeFromCart(product)}>Poista</button></td>
                        </tr>
                     )
                     })}

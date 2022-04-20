@@ -70,7 +70,8 @@ export default function App() {
   
     
   function empty() {
-
+    localStorage.removeItem("cart");
+    setCart([])
   }
     
       
