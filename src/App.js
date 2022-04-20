@@ -59,7 +59,7 @@ export default function App() {
       setCart(itemsWithoutRemoved);
       localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
     }
-  
+    // Changing the amount in cart
     function updateAmount(amount, product) {
       product.amount = amount;
       const index = cart.findIndex((item => item.tuote_id === product.tuote_id));
@@ -69,7 +69,10 @@ export default function App() {
     }
   
     
-  
+  function empty() {
+    localStorage.removeItem("cart");
+    setCart([])
+  }
     
       
 
@@ -89,7 +92,14 @@ export default function App() {
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
-          <Route path="/Order" element={<Order cart={cart} removeFromCart={removeFromCart} updateAmount={updateAmount} />} />
+          <Route path="/Order" 
+            element={<Order 
+              cart={cart} 
+              removeFromCart={removeFromCart} 
+              updateAmount={updateAmount}
+              url={URL}
+              empty={empty}
+              />} />
           
           {/* <Route path="/discount" element={<Discount url={URL} addToCart={addToCart}/>}></Route> */}
           <Route path="/product/:id" element={<Product url={URL} />}></Route>

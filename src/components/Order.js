@@ -33,7 +33,7 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
       if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex].current !== null) {
           inputs[inputIndex].current.focus();
       }
-  }, [cart]) 
+  }, [cart, inputs, inputIndex]) 
   
      let sum = 0;
  
@@ -55,7 +55,7 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
       cart: cart,
     });
     console.log(json)
-  axios.post(url + "order/save.php",json,{
+  axios.post(url + "/order/save.php",json,{
     headers: {
       "Accept": "application/json",
       "Content-Type": "application/json"
@@ -84,9 +84,13 @@ if(finished === false){
                            <td><h4 className='text-white'>{product.tuotenimi}</h4></td>
                            <td className='text-white'>{product.hinta}€</td>
                            <td>
-                               <input ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
+                               <input type={"number"} min={"1"} max={"1000"} ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
                            </td>
+<<<<<<< HEAD
                            <td><a href="/#" onClick={() => removeFromCart(product)}><i class="bi bi-trash3-fill text-white"></i></a></td>
+=======
+                           <td><button onClick={() => removeFromCart(product)}>Poista</button></td>
+>>>>>>> 3f9f2d9d13545fee9a5b981c1cacd4206e75c60b
                        </tr>
                     )
                     })}
