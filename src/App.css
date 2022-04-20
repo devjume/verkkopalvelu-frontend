@@ -102,12 +102,37 @@ body {
 }
 main {
   background-color: #FFFFFF;
-  padding: 4px;
+  padding: 10px;
+  margin: 10px;
 }
 .kuvaustiedot {
   background-color: #2C302E;
   text-decoration: #a0e49c;
 }
 .kuvaus {
+  background-color: #a0e49c;
+}
+.adminsivu {
+  background-color: #a0e49c;
+  padding: 10px;
+  margin: 10px;
+}
+.formit {
+  background-color: #474A48;
+}
+.ostoskoripikkukuvat {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: 120px;
+}
+.korttibg {
+  background-color: #a0e49c;
+}
+h4 {
+  padding: 4px;
+}
+.btn {
   background-color: #a0e49c;
 }

@@ -39,13 +39,13 @@ export default function AddCategory({ url }) {
 
   return (
     <> 
-      <form id="add-category" className='row p-4' onSubmit={postCategory}>
+      <form id="add-category" className='row p-4 formit' onSubmit={postCategory}>
         <div className="col-4 form-floating">
           <input type="text" name="category-name" id="category-name" className='form-control' placeholder='Kategorian nimi' value={categoryName} onChange={e => setCategoryName(e.target.value)} minLength="0" />
           <label htmlFor="category-name" className='form-label'>Tuoteryhmä</label>
         </div>
         <div className="col-auto d-flex align-items-end">
-          <button type="submit" className='btn btn-primary'>Lisää</button>
+          <button type="submit" className='btn'>Lisää</button>
         </div>
       </form>
       <div className='mt-1'>

@@ -83,7 +83,7 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount }) 
 
   return (
 
-    <div>
+    <main className="p-3 m-3">
       <h1>Tuotteet:</h1>
       <div className="row mt-3">
         <div className="col-3">
@@ -114,6 +114,6 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount }) 
         ))}
         
       </div>
-    </div>
+    </main>
   )
 }

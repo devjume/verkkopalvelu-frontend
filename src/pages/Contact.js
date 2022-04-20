@@ -50,33 +50,33 @@ export default function Contact({url}) {
   }, [showMessage]);
 
   return (
-    <div className="container mb-3">
+    <main className="container p-3 m-3">
       {showMessage && <div className="alert alert-success mt-2" role="alert">
         {responseMessage}
       </div>}
 
-      <h3>Ota yhteyttä</h3>
-      <form id="add-product" className='' onSubmit={submitForm}>
-        <div className="col-3  form-floating">
+      <h1>Ota yhteyttä</h1>
+      <form id="add-product" className='formit row p-3' onSubmit={submitForm}>
+        <div className="col-3 p-2  form-floating mt-2">
           <input type="text" name="nimi" id="contact-name" className='form-control' placeholder='Nimi' value={contactName} onChange={e => setContactName(e.target.value)} />
           <label htmlFor="nimi" className='form-label'>Nimi</label>
         </div>
-        <div className="col-3  form-floating mt-2">
+        <div className="col-3 p-2  form-floating mt-2">
           <input type="email" name="sposti" id="contact-email" className='form-control' placeholder='Sähköposti' value={contactEmail} onChange={e => setContactEmail(e.target.value)} />
           <label htmlFor="sposti" className='form-label'>Sähköposti</label>
         </div>
-        <div className="col-3  form-floating mt-2">
+        <div className="col-3 p-2  form-floating mt-2">
           <input type="number" name="tilausnumero" id="order-number" className='form-control' min={0} placeholder='Tilausnumero' value={orderNumber} onChange={e => setOrderNumber(e.target.value)} />
           <label htmlFor="order-number" className='form-label'>Tilausnumero</label>
         </div>
-        <div className="col-6  form-floating mt-2">
+        <div className="col-4 p-2  form-floating mt-2">
           <textarea className="form-control" placeholder="Viesti..." id="message" style={{ 'height': '100px' }} value={message} onChange={e => setMessage(e.target.value)} ></textarea>
           <label htmlFor="message" className='form-label'>Viesti</label>
         </div>
         <div className="col-auto d-flex align-items-end mt-2">
-          <button type="submit" className='btn btn-primary'>Lähetä</button>
+          <button type="submit" className='btn'>Lähetä</button>
         </div>
       </form>
-    </div>
+    </main>
   )
 }

@@ -48,9 +48,9 @@ export default function DeleteProduct({ url }) {
 
   return (
     <>
-     <form id="delete-product" className='row p-4'  onSubmit={RemoveProduct}>
+     <form id="delete-product" className='row p-4 formit'  onSubmit={RemoveProduct}>
   <div className="col-3">
-    <label htmlFor="tuote" className="form-label">Tuote:</label>
+    <label htmlFor="tuote" className="form-label text-white">Tuote:</label>
     <input autoComplete='off' value={deleteId} onChange={e => setdeleteId(e.target.value)} list="tuote" name="tuote" id="tuote-input" className="form-control" placeholder="Poistettava tuote"/>
     <datalist id="tuote">
     {products?.map(product => (
@@ -58,7 +58,7 @@ export default function DeleteProduct({ url }) {
               {product.nimi}
             </option>))}
     </datalist>
-    <button type="submit" className='btn btn-primary m-2'>Poista</button>
+    <button type="submit" className='btn m-2'>Poista</button>
   </div>
   </form>
     </>

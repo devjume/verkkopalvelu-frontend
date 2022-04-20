@@ -67,7 +67,7 @@ export default function AddProduct({ url }) {
   return (
     <>  
       {showMessage && <h5>Tuote lisätty!</h5> }
-      <form id="add-product" className='row p-4'  onSubmit={postProduct}>
+      <form id="add-product" className='row p-4 formit'  onSubmit={postProduct}>
         <div className="col-4 p-1  form-floating">
           <input type="text" name="tuotenimi" id="product-name" className='form-control' placeholder='Tuotteen nimi' value={productName} onChange={e => setProductName(e.target.value)}/>
           <label htmlFor="product-name" className='form-label'>Tuotenimi</label>
@@ -101,7 +101,7 @@ export default function AddProduct({ url }) {
         </select>
         </div>
         <div className="col-2 d-flex align-items-end">
-          <button type="submit" className='btn btn-primary m-2'>Lisää</button>
+          <button type="submit" className='btn m-2'>Lisää</button>
         </div>
       </form>
     </>

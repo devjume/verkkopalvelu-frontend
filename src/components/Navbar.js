@@ -32,7 +32,7 @@ export default function Navbar({categories, cart}) {
                   </li>
                 ))}
                 <li><hr className="dropdown-divider"/></li>
-                <li><Link to="/products" className="dropdown-item text-white" aria-current="page">Kaikki tuotteet</Link></li>
+                <li><Link to="/products" className="dropdown-item text-white bg-dark" aria-current="page">Kaikki tuotteet</Link></li>
               </ul>
             </li>
             <li className='nav-item'><Link to="/admin" className="nav-link">Admin</Link></li>
