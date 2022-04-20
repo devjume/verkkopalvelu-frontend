@@ -25,18 +25,18 @@ export default function Navbar({categories, cart}) {
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Kategoriat
               </a>
-              <ul className="dropdown-menu bg-dark" aria-labelledby="navbardarkDropdown">
+              <ul className="dropdown-menu bg-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 {items?.map(item => (
-                  <li className="dropdown-item-dark" key={item.id}>
-                    <Link to={`/${(item.nimi).toLowerCase()}`} className="dropdown-item" aria-current="page">{item.nimi}</Link>
+                  <li className="dropdown-item bg-dark" key={item.id}>
+                    <Link to={`/${(item.nimi).toLowerCase()}`} className="dropdown-item text-white bg-dark" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
                 <li><hr className="dropdown-divider"/></li>
                 <li><Link to="/products" className="dropdown-item text-white" aria-current="page">Kaikki tuotteet</Link></li>
               </ul>
             </li>
-            <li className='nav-item'><Link to="/contact" className="nav-link"><i className='bi bi-chat-dots-fill'></i></Link></li>
             <li className='nav-item'><Link to="/admin" className="nav-link">Admin</Link></li>
+            <li className='nav-item'><Link to="/contact" className="nav-link"><i className='bi bi-chat-dots-fill'></i></Link></li>
             <li className="nav-item">
               <Cart cart={cart} />
             </li>

@@ -80,6 +80,7 @@ if(finished === false){
                    sum+=parseFloat(product.hinta) * parseInt(product.amount);
                    return(
                        <tr key={uuid()}>
+                           <td><img src={product.kuvatiedosto} className=""></img></td>
                            <td>{product.tuotenimi}</td>
                            <td>{product.hinta}€</td>
                            <td>

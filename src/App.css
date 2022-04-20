@@ -102,5 +102,12 @@ body {
 }
 main {
   background-color: #FFFFFF;
+  padding: 4px;
 }
-
+.kuvaustiedot {
+  background-color: #2C302E;
+  text-decoration: #a0e49c;
+}
+.kuvaus {
+  background-color: #a0e49c;
+}
