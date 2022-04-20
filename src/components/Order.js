@@ -85,8 +85,10 @@ if(finished === false){
                            <td>
                                <input type={"number"} min={"1"} max={"1000"} ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
                            </td>
+                           <td>{product.amount*product.hinta}€</td>
                            <td><button onClick={() => removeFromCart(product)}>Poista</button></td>
                        </tr>
+
                     )
                     })}
                     <tr key={uuid()}>
@@ -97,6 +99,9 @@ if(finished === false){
                     </tr>
              </tbody>
          </table>
+         <div>
+             <button onClick={empty}>Tyhjennä ostoskori</button>
+             </div>
         {cart.length > 0 && // Render order form, if theres something in the cart
           <>
             <h3 className='header'>Asiakastiedot:</h3>

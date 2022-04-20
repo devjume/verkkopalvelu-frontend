@@ -108,8 +108,8 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount }) 
             return products
           }
         }).map((product) =>
-          <div className="col-md-4 col-lg-3 d-flex" >
-          <ProductCard product={product} addToCart={addToCart} key={product.tuote_id} />
+          <div className="col-md-4 col-lg-3 d-flex" key={product.tuote_id} >
+          <ProductCard product={product} addToCart={addToCart}  />
           </div>
         ))}
         
