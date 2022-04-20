@@ -30,7 +30,7 @@ export default function CarDetails({url, addToCart}) {
         <p>Speksit: {product.kuvaus}</p>
         <p>Valmistaja: {product.valmistaja}</p>
         <img src={product.kuvatiedosto}/>
-        <button className='btn btn-primary' type="button" onClick={(e) => addToCart(product)}>Add</button>
+        <button className='btn' type="button" onClick={(e) => addToCart(product)}>Add</button>
         <Link to={`/`}>
             <p>lähe pois!!</p>
         </Link>

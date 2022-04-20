@@ -87,6 +87,20 @@ export default function UpdateProduct({ url }) {
 
   return (
     <>
+<<<<<<< HEAD
+     <form id="update-product" className='row p-4 formit'  onSubmit={savePick}>
+  <div className="col-3">
+    <label htmlFor="tuote" className="form-label text-white">Tuote:</label>
+    <select id="tuote" onChange={e => setSelectedProduct(e.target.value)}>
+    {products?.map(product => (
+            <option name="tuoteryhma"  value={product.tuote_id}  className="dropdown-item" key={product.tuote_id}>
+              {product.tuotenimi}
+            </option>))}
+    </select>
+    <button type="submit" className='btn m-2'>Valitse</button>
+  </div>
+  </form>
+=======
       <form id="update-product" className=''  onSubmit={savePick}>
         <div className="col-3">
           <label htmlFor="tuote" className="form-label">Tuote:</label>
@@ -99,34 +113,35 @@ export default function UpdateProduct({ url }) {
           <button type="submit" className='btn btn-primary'>Valitse</button>
         </div>
       </form>
+>>>>>>> 3f9f2d9d13545fee9a5b981c1cacd4206e75c60b
 
-  <form id="add-product" className=''  onSubmit={muokkaa}>
-        <div className="col-4  form-floating">
+  <form id="add-product" className='row p-4 formit'  onSubmit={muokkaa}>
+        <div className="col-4 p-2 form-floating">
           <input type="text" name="tuotenimi" id="product-name" className='form-control' placeholder='Tuotteen nimi' value={productName} onChange={e => setProductName(e.target.value)}/>
           <label htmlFor="product-name" className='form-label'>Tuotenimi</label>
         </div>
-        <div className="col-4  form-floating">
+        <div className="col-4 p-2 form-floating">
           <input type="number" name="hinta" id="product-price" className='form-control' placeholder='Tuotteen hinta' value={productPrice} onChange={e => setProductPrice(e.target.value)}/>
           <label htmlFor="product-price" className='form-label'>Hinta</label>
         </div>
-        <div className="col-4  form-floating">
+        <div className="col-4 p-2 form-floating">
           <input type="number" name="alehinta" id="sale-price" className='form-control' placeholder='Tuotteen alehinta' value={salePrice} onChange={e => setSalePrice(e.target.value)}/>
           <label htmlFor="sale-price" className='form-label'>Alehinta</label>
         </div>
-        <div className="col-4  form-floating">
+        <div className="col-4 p-2 form-floating">
           <textarea type="text" name="kuvaus" id="product-desc" className='form-control' placeholder='Tuotteen kuvaus' value={productDesc} onChange={e => setProductDesc(e.target.value)}/>
           <label htmlFor="product-desc" className='form-label'>Kuvaus</label>
         </div>
-        <div className="col-4  form-floating">
+        <div className="col-4 p-2 form-floating">
           <input type="text" name="valmistaja" id="product-supplier" className='form-control' placeholder='Valmistaja' value={productSupplier} onChange={e => setProductSupplier(e.target.value)}/> 
           <label htmlFor="product-supplier" className='form-label'>Valmistaja</label>
         </div>
-        <div className="col-4  form-floating">
+        <div className="col-4 p-2 form-floating">
           <input type="text" name="kuvatiedosto" id="product-img" className='form-control' placeholder='Kuvatiedosto' value={productImg} onChange={e => setProductImg(e.target.value)}/>
           <label htmlFor="product-img" className='form-label'>Kuvatiedosto</label>
         </div>
         <div className="col-auto d-flex align-items-end">
-          <button type="submit" className='btn btn-primary'>Update</button>
+          <button type="submit" className='btn'>Päivitä</button>
         </div>
       </form>
     </>

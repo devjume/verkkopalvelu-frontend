@@ -10,11 +10,11 @@ export default function Home({url, addToCart, categories}) {
    }, [])
 
   return (
-    <div>
+    <main className='p-3 m-3'>
       <Banner></Banner>
       {twoCategories?.map(category => (
             <ComponentCarousel key={category.id} url={url} categoryId={category.id} addToCart={addToCart} categoryName={category.nimi} />
           ))}
-    </div>
+    </main>
   )
 }
