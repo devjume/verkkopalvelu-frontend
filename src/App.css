@@ -37,6 +37,7 @@
   footer {
     background-color: #2C302E;
   }
+  
   .list-group-item {
     background-color: #2C302E;
   }
@@ -106,8 +107,6 @@ body {
 }
 main {
   background-color: #FFFFFF;
-  padding: 10px;
-  margin: 10px;
 }
 .kuvaustiedot {
   background-color: #2C302E;
@@ -118,8 +117,6 @@ main {
 }
 .adminsivu {
   background-color: #a0e49c;
-  padding: 10px;
-  margin: 10px;
 }
 .formit {
   background-color: #474A48;
