@@ -17,6 +17,7 @@ export default function Product({url, addToCart}) {
   useEffect(() => {
       axios.get(`${url}/product.php`, { params: {id: id}})
         .then((response) => {
+          console.log(response.data);
           setProduct(response.data);
 
           // Tarkastaa onko alehintaa määritelty. Jos alehintaa ei ole tai se on 0 niin laitetaan discountPrice arvoksi = null. Tämä arvo nyt yksinkertaisempi tarkistaa alhaalla return kohdassa.
@@ -44,7 +45,7 @@ export default function Product({url, addToCart}) {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             {/* Palaa takaisin edelliselle sivulle käyttämällä react-router-dom useNavigate API:ta */}
-            <li className="breadcrumb-item"><button type="button" className="btn" onClick={() => navigate(-1)}>Takaisin tuotteisiin</button></li>
+            <li className="breadcrumb-item"><button type="button" className="btn" onClick={() => navigate("/products")}>Takaisin tuotteisiin</button></li>
           </ol>
         </nav>
         <div className='col-4 mt-3'>

@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import Category from './components/Category';
 import Product from './components/Product';
 import ViewContact from './components/admin/ViewContact';
+import NotFound from './pages/NotFound';
 
 const URL = "http://localhost/verkkopalvelu-backend";
 
@@ -76,8 +77,6 @@ export default function App() {
     localStorage.removeItem("cart");
     setCart([])
   }
-    
-      
 
   return (
     <div className='d-flex flex-column h-100'>
@@ -87,11 +86,12 @@ export default function App() {
     
       <div className="container mb-5">
         <Routes>
+          <Route path="*" element={<NotFound/>} ></Route>
           <Route path="/" element={<Home url={URL} addToCart={addToCart} categories={categories} />} ></Route>
           <Route path="/products" element={<Category url={URL} addToCart={addToCart} categoryId={0}/>}></Route>
           <Route path="/discount" element={<Category url={URL} addToCart={addToCart} fetchDiscount={true}/>}></Route>
           {categories?.map(category => (
-            <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} categoryId={category.id}/>}></Route>
+            <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} categoryId={category.id} categories={categories}/>}></Route>
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/admin/orders" element={<Orders url={URL} />}></Route>
