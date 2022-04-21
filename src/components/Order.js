@@ -86,8 +86,13 @@ if(finished === false){
                            <td>
                                <input type={"number"} min={"1"} max={"1000"} ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
                            </td>
-                           <td><a href="/#" onClick={() => removeFromCart(product)}><i class="bi bi-trash3-fill text-white"></i></a></td>
+
+                           <td>{product.amount*product.hinta}€</td>
+
+                           <td><button href="/#" onClick={() => removeFromCart(product)}>Poista<i class="bi bi-trash3-fill text-white"></i></button></td>
+                       
                        </tr>
+
                     )
                     })}
                     <tr key={uuid()}>
@@ -98,6 +103,9 @@ if(finished === false){
                     </tr>
              </tbody>
          </table>
+         <div>
+             <button onClick={empty}>Tyhjennä ostoskori</button>
+             </div>
         {cart.length > 0 && // Render order form, if theres something in the cart
           <>
             <h3 className='header'>Asiakastiedot:</h3>
