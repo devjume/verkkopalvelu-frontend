@@ -1,9 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
 import Carousel from "react-elastic-carousel";
 import ProductCard from "./ProductCard";
-import Item from "./Item";
 import { useState, useEffect } from "react"
 import axios from 'axios';
 
@@ -32,7 +29,7 @@ export default function ComponentCarousel({ categoryId, url, categoryName, addTo
     <>
       <h1 style={{ textAlign: "center" }}>{categoryName}</h1>
       <div className="carousel">
-        <Carousel breakPoints={breakPoints} itemPadding={[0, 5]}  /*autoPlaySpeed={10000} enableAutoPlay={true}*/ showArrows={false}>
+        <Carousel breakPoints={breakPoints} itemPadding={[0, 5]}  /*autoPlaySpeed={10000} enableAutoPlay={true}*/ enableMouseSwipe={false} enableSwipe={false} showArrows={true}>
         {products?.map(product => (
           <div className="col-12 d-flex" key={product.tuote_id}>
             <ProductCard product={product} addToCart={addToCart} key={product.tuote_id} />

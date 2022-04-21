@@ -55,7 +55,7 @@ export default function Product({url, addToCart}) {
           <h2>{product.tuotenimi}</h2>
           <h6>Valmistaja: {product.valmistaja}</h6>
           <h3>{discountPrice === null ? product.hinta : discountPrice}€ {discountPrice !== null && <s className="fs-5 fw-normal">{product.hinta}€</s>}</h3>
-          <button className='btn'onClick={(e) => addToCart(product)}>Lisää ostoskoriin <i className='bi bi-cart-fill'></i></button>
+          <button className='btn' onClick={(e) => addToCart(product)} style={{ zIndex: 1 }}>Lisää ostoskoriin<i className='bi bi-cart-fill'></i></button>
           </div>
       </div>
       <div className='row mt-4 px-4 kuvaus'>

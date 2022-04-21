@@ -5,6 +5,8 @@ import axios from 'axios';
 import Home from "./pages/Home";
 
 import Admin from './pages/Admin';
+import Orders from './pages/Orders';
+import OrderDetails from './pages/OrderDetails';
 import Contact from './pages/Contact';
 import Discount from './pages/Discount';
 
@@ -92,6 +94,8 @@ export default function App() {
             <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} categoryId={category.id}/>}></Route>
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
+          <Route path="/admin/orders" element={<Orders url={URL} />}></Route>
+          <Route path="/admin/orders/:id" element={<OrderDetails url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
           <Route path="/viewcontact" element={<ViewContact url={URL} />}></Route>
           <Route path="/Order" 
@@ -104,7 +108,7 @@ export default function App() {
               />} />
           
           {/* <Route path="/discount" element={<Discount url={URL} addToCart={addToCart}/>}></Route> */}
-          <Route path="/product/:id" element={<Product url={URL} />}></Route>
+          <Route path="/product/:id" element={<Product url={URL} addToCart={addToCart} />}></Route>
           <Route path="/product/carousel/:id" element={<Product url={URL} addToCart={addToCart} />}></Route>
         </Routes>
       </div> 
