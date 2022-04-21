@@ -15,6 +15,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Category from './components/Category';
 import Product from './components/Product';
+import ViewContact from './components/admin/ViewContact';
 
 const URL = "http://localhost/verkkopalvelu-backend";
 
@@ -92,6 +93,7 @@ export default function App() {
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
+          <Route path="/viewcontact" element={<ViewContact url={URL} />}></Route>
           <Route path="/Order" 
             element={<Order 
               cart={cart} 
