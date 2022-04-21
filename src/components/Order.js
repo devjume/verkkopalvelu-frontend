@@ -72,8 +72,9 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
   
 if(finished === false){ 
  return (
-     <main className='p-3 m-3'>
+     <main className=''>
          <h3 className="Header">Tavarat ostokorissa</h3>
+         <div className='table-responsive-sm'>
          <table className="table">
              <tbody>
                  {cart.map((product, index) => {
@@ -87,54 +88,53 @@ if(finished === false){
                                <input type={"number"} min={"1"} max={"1000"} ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
                            </td>
 
-                           <td>{product.amount*product.hinta}€</td>
+                           <td className='text-white'>{product.amount*product.hinta}€</td>
 
-                           <td><button href="/#" onClick={() => removeFromCart(product)}>Poista<i class="bi bi-trash3-fill text-white"></i></button></td>
+                           <td><button className='btn' href="/#" onClick={() => removeFromCart(product)}>Poista <i class="bi bi-trash3-fill"></i></button></td>
                        
                        </tr>
 
                     )
-                    })}
+                    })}</tbody></table></div>
+                    <div><table>
                     <tr key={uuid()}>
                         <td></td>
                         <td>Yhteishinta {sum.toFixed(2)} €</td>
                         <td></td>
                         <td></td>
                     </tr>
-             </tbody>
-         </table>
-         <div>
-             <button onClick={empty}>Tyhjennä ostoskori</button>
+             </table>
+             <button className='btn m-2' onClick={empty}>Tyhjennä ostoskori</button>
              </div>
         {cart.length > 0 && // Render order form, if theres something in the cart
           <>
             <h3 className='header'>Asiakastiedot:</h3>
             <form onSubmit={order} className='formit p-3 m-6 row'>
-              <div className="col-4 p-1 form-floating">
+              <div className="col-md-6 col-lg-4 p-1 form-floating">
                 <input type="text" name="firstname" id="firstname" className='form-control' placeholder='etunimi' onChange={e => setFirstname(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Etunimi</label>
               </div>
-              <div className="col-4 p-1 form-floating">
+              <div className="col-md-6 col-lg-4 p-1 form-floating">
                 <input type="text" name="lastname" id="lastname" className='form-control' placeholder='sukunimi' onChange={e => setLastname(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Sukunimi</label>
               </div>
-              <div className="col-4 p-1 form-floating">
+              <div className="col-lg-4 p-1 form-floating">
                 <input type="text" name="email" id="email" className='form-control' placeholder='sähköposti' onChange={e => setEmail(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Sähköposti</label>
               </div>
-              <div className="col-4 p-1 form-floating">
+              <div className="col-lg-4 p-1 form-floating">
                 <input type="number" name="number" id="number" className='form-control' placeholder='Puhelinnumero' onChange={e => setNumber(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Puhelinnumero</label>
               </div>
-              <div className="col-4 p-1 form-floating">
+              <div className="col-lg-4 p-1 form-floating">
                 <input type="text" name="address" id="address" className='form-control' placeholder='Osoite' onChange={e => setAddress(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Osoite</label>
               </div>
-              <div className="col-4 p-1 form-floating">
+              <div className="col-md-6 col-lg-4 p-1 form-floating">
                 <input type="number" name="zip" id="zip" className='form-control' placeholder='Postinumero' onChange={e => setZip(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Postinumero</label>
               </div>
-              <div className="col-4 p-1 form-floating">
+              <div className="col-md-6 col-lg-4 p-1 form-floating">
                 <input type="text" name="city" id="city" className='form-control' placeholder='Kaupunki' onChange={e => setCity(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Kaupunki</label>
               </div>

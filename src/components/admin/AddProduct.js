@@ -68,7 +68,7 @@ export default function AddProduct({ url }) {
     <>  
       {showMessage && <h5>Tuote lisätty!</h5> }
       <form id="add-product" className='row p-4 formit'  onSubmit={postProduct}>
-        <div className="col-4 p-1  form-floating">
+        <div className="col-lg-4 p-1  form-floating">
           <input type="text" name="tuotenimi" id="product-name" className='form-control' placeholder='Tuotteen nimi' value={productName} onChange={e => setProductName(e.target.value)}/>
           <label htmlFor="product-name" className='form-label'>Tuotenimi</label>
         </div>
@@ -80,19 +80,19 @@ export default function AddProduct({ url }) {
           <input type="number" name="alehinta" id="sale-price" className='form-control' placeholder='Tuotteen alehinta' value={salePrice} onChange={e => setSalePrice(e.target.value)}/>
           <label htmlFor="sale-price" className='form-label'>Alehinta</label>
         </div>
-        <div className="col-4 p-1 form-floating">
+        <div className="col-lg-4 p-1 form-floating">
           <textarea type="text" name="kuvaus" id="product-desc" className='form-control' placeholder='Tuotteen kuvaus' value={productDesc} onChange={e => setProductDesc(e.target.value)}/>
           <label htmlFor="product-desc" className='form-label'>Kuvaus</label>
         </div>
-        <div className="col-4 p-1 form-floating">
+        <div className="col-lg-4 p-1 form-floating">
           <input type="text" name="valmistaja" id="product-supplier" className='form-control' placeholder='Valmistaja' value={productSupplier} onChange={e => setProductSupplier(e.target.value)}/> 
           <label htmlFor="product-supplier" className='form-label'>Valmistaja</label>
         </div>
-        <div className="col-4 p-1 form-floating">
+        <div className="col-lg-4 p-1 form-floating">
           <input type="text" name="kuvatiedosto" id="product-img" className='form-control' placeholder='Kuvatiedosto' value={productImg} onChange={e => setProductImg(e.target.value)}/>
           <label htmlFor="product-img" className='form-label'>Kuvatiedosto</label>
         </div>
-        <div className="col-2 p-1 form-floating">
+        <div className="col-lg-2 p-1 form-floating">
         <select onChange={e => setProductCategory(e.target.value)}>
           {categories?.map(category => (
             <option name="tuoteryhma" value={category.id} className="dropdown-item" key={category.id}>

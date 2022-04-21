@@ -49,7 +49,7 @@ export default function DeleteProduct({ url }) {
   return (
     <>
      <form id="delete-product" className='row p-4 formit'  onSubmit={RemoveProduct}>
-  <div className="col-3">
+  <div className="col-lg-3">
     <label htmlFor="tuote" className="form-label text-white">Tuote:</label>
     <input autoComplete='off' value={deleteId} onChange={e => setdeleteId(e.target.value)} list="tuote" name="tuote" id="tuote-input" className="form-control" placeholder="Poistettava tuote"/>
     <datalist id="tuote">

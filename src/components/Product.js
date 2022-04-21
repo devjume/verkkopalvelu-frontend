@@ -47,11 +47,11 @@ export default function Product({url, addToCart}) {
             <li className="breadcrumb-item"><button type="button" className="btn" onClick={() => navigate(-1)}>Takaisin tuotteisiin</button></li>
           </ol>
         </nav>
-        <div className='col-4 mt-3'>
+        <div className='col-lg-4 mt-3'>
           <h2>{product.tuotenimi}</h2>
           <img src={product.kuvatiedosto} className="img-fluid" alt={product.tuotenimi} style={{ width: "auto", height: "350px", objectFit: "scale-down" }}></img>
         </div>
-        <div className='col-4 offset-2 mt-3 p-4 kuvaustiedot text-white'>
+        <div className='col-lg-4 offset-lg-2 mt-3 p-4 kuvaustiedot text-white'>
           <h2>{product.tuotenimi}</h2>
           <h6>Valmistaja: {product.valmistaja}</h6>
           <h3>{discountPrice === null ? product.hinta : discountPrice}€ {discountPrice !== null && <s className="fs-5 fw-normal">{product.hinta}€</s>}</h3>
@@ -59,7 +59,7 @@ export default function Product({url, addToCart}) {
           </div>
       </div>
       <div className='row mt-4 px-4 kuvaus'>
-        <div className='col-6 mt-3'>
+        <div className='col-lg-6 mt-3'>
           <h4>Kuvaus:</h4>
           <p>{product.kuvaus}</p>
         </div>
