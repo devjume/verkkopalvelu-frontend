@@ -12,12 +12,8 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount, ca
   const [shopList, setShopList] = useState(null);
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null)
-  const [categoryName, setCategoryName] = useState('troll');
+  const [categoryName, setCategoryName] = useState('');
   const [searchTerm, setSearchTerm] = useState("")
-
-  console.log(categories)
-
-
 
   async function fetchAllProducts() {
     axios.get(`${url}/products.php`)
@@ -89,7 +85,6 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount, ca
 
 
   return (
-
     <main className="p-3 m-3">
       <h1 id="categoryname">{categoryName}</h1>
       <div className="row mt-3">
