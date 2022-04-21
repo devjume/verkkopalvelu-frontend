@@ -77,8 +77,6 @@ export default function App() {
     localStorage.removeItem("cart");
     setCart([])
   }
-    
-      
 
   return (
     <div className='d-flex flex-column h-100'>
