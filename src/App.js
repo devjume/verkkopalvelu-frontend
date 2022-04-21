@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import Category from './components/Category';
 import Product from './components/Product';
 import ViewContact from './components/admin/ViewContact';
+import NotFound from './pages/NotFound';
 
 const URL = "http://localhost/verkkopalvelu-backend";
 
@@ -87,6 +88,7 @@ export default function App() {
     
       <div className="container mb-5">
         <Routes>
+          <Route path="*" element={<NotFound/>} ></Route>
           <Route path="/" element={<Home url={URL} addToCart={addToCart} categories={categories} />} ></Route>
           <Route path="/products" element={<Category url={URL} addToCart={addToCart} categoryId={0}/>}></Route>
           <Route path="/discount" element={<Category url={URL} addToCart={addToCart} fetchDiscount={true}/>}></Route>
