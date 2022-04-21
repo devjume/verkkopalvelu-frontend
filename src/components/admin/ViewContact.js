@@ -80,13 +80,13 @@ export default function ViewContact({url}) {
           <td scope="row">{contact.viesti}</td>
           {id === undefined && 
             <td>
-              <Link to={`/viewcontact/${contact.id}`} className="btn">
+              <Link to={`/admin/viewcontact/${contact.id}`} className="btn">
                 <i className="bi bi-info-circle-fill"></i>
               </Link>
             </td>}
             {id !== undefined && 
             <td>
-              <Link to={`/viewcontact`} className="btn" placeholder="Takaisin">Takaisin</Link>
+              <Link to={`/admin/viewcontact`} className="btn" placeholder="Takaisin">Takaisin</Link>
             </td>}
         </tr>
         ))}
