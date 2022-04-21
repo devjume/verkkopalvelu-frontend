@@ -88,7 +88,7 @@ export default function App() {
           <Route path="/products" element={<Category url={URL} addToCart={addToCart} categoryId={0}/>}></Route>
           <Route path="/discount" element={<Category url={URL} addToCart={addToCart} fetchDiscount={true}/>}></Route>
           {categories?.map(category => (
-            <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} categoryId={category.id}/>}></Route>
+            <Route path={category.nimi} key={category.id} element={<Category url={URL} addToCart={addToCart} categoryId={category.id} categories={categories}/>}></Route>
           ))}
           <Route path="/admin" element={<Admin url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>

@@ -5,15 +5,19 @@ import Product from './Product';
 
 import ProductCard from "./ProductCard";
 
-export default function Category({ url, addToCart, categoryId, fetchDiscount }) {
+export default function Category({ url, addToCart, categoryId, fetchDiscount, categories }) {
 
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [shopList, setShopList] = useState(null);
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null)
-  const [categoryName, setCategoryName] = useState('');
+  const [categoryName, setCategoryName] = useState('troll');
   const [searchTerm, setSearchTerm] = useState("")
+
+  console.log(categories)
+
+
 
   async function fetchAllProducts() {
     axios.get(`${url}/products.php`)
@@ -57,10 +61,13 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount }) 
     // Kun categoryId on 0 niin näytä kaikki tuotteet. CategoryId=0 on käytössä vain "kaikki tuotteet" sivulla
     if (categoryId === 0) {
       fetchAllProducts();
+      setCategoryName("Kaikki tuotteet")
     } else if (fetchDiscount === true) {
       fetchDiscountProducts();
+      setCategoryName("Aletuotteet")
     } else {
       fetchCategoryProducts();
+      setCategoryName(categories[categoryId-1].nimi)
     }
   }, [categoryId]);
 
@@ -84,7 +91,7 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount }) 
   return (
 
     <main className="p-3 m-3">
-      <h1>Tuotteet:</h1>
+      <h1 id="categoryname">{categoryName}</h1>
       <div className="row mt-3">
         <div className="col-3">
           <label htmlFor="search" className="form-label">Etsi tuotenimellä</label>
