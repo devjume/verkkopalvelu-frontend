@@ -14,7 +14,7 @@ export default function ProductCard({product, addToCart}) {
 
   return (
       <div className="card w-100 korttibg">
-        <img src={product.kuvatiedosto} className="card-img-top img-fluid my-2" alt={product.tuotenimi} style={{ width: "auto", height: "200px", objectFit: "scale-down" }}></img>
+        <img src={product.kuvatiedosto} className="card-img-top img-fluid my-2 bg-white" alt={product.tuotenimi} style={{ width: "auto", height: "200px", objectFit: "scale-down" }}></img>
         <div className="card-body d-flex flex-column">
           <h6 className="card-title">{product.tuotenimi}</h6>
           <p className="card-text text-truncate flex-fill">{product.kuvaus}</p>

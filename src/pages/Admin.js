@@ -21,7 +21,7 @@ export default function Admin({url, id}) {
   }, []);
 
   return (
-    <div className="container m-3 p-3 adminsivu">
+    <div className="container m-4 p-4 adminsivu">
       <h1>Admin</h1>
       <h4>Lisää Tuoteryhmä</h4>
       <AddCategory url={url}/>
