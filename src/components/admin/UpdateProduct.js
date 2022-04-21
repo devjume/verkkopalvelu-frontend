@@ -87,33 +87,18 @@ export default function UpdateProduct({ url }) {
 
   return (
     <>
-<<<<<<< HEAD
-     <form id="update-product" className='row p-4 formit'  onSubmit={savePick}>
-  <div className="col-3">
-    <label htmlFor="tuote" className="form-label text-white">Tuote:</label>
-    <select id="tuote" onChange={e => setSelectedProduct(e.target.value)}>
-    {products?.map(product => (
-            <option name="tuoteryhma"  value={product.tuote_id}  className="dropdown-item" key={product.tuote_id}>
-              {product.tuotenimi}
-            </option>))}
-    </select>
-    <button type="submit" className='btn m-2'>Valitse</button>
-  </div>
-  </form>
-=======
-      <form id="update-product" className=''  onSubmit={savePick}>
-        <div className="col-3">
-          <label htmlFor="tuote" className="form-label">Tuote:</label>
+    <form id="update-product" className='row p-4 formit'  onSubmit={savePick}>
+      <div className="col-3">
+        <label htmlFor="tuote" className="form-label text-white">Tuote:</label>
           <select id="tuote" onChange={e => setSelectedProduct(e.target.value)}>
-          {products?.map(product => (
+            {products?.map(product => (
             <option name="tuoteryhma"  value={product.tuote_id}  className="dropdown-item" key={product.tuote_id}>
               {product.tuotenimi}
             </option>))}
           </select>
-          <button type="submit" className='btn btn-primary'>Valitse</button>
-        </div>
-      </form>
->>>>>>> 3f9f2d9d13545fee9a5b981c1cacd4206e75c60b
+        <button type="submit" className='btn m-2'>Valitse</button>
+      </div>
+    </form>
 
   <form id="add-product" className='row p-4 formit'  onSubmit={muokkaa}>
         <div className="col-4 p-2 form-floating">
