@@ -22,6 +22,7 @@ export default function OrderDetails({url}) {
 
   return (
     <>
+    <div className="m-3 p-3 adminsivu">
     <table className="table mt-4 row">
         <thead>
           <tr>
@@ -67,6 +68,7 @@ export default function OrderDetails({url}) {
         ))}
       </tbody>
       </table>
+      </div>
     </>
   )
 }
