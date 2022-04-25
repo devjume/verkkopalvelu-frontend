@@ -31,6 +31,7 @@ export default function OrdersTable({ url }) {
           <th scope="col">Etunimi</th>
           <th scope="col">Sukunimi</th>
           <th scope="col">Tilauspäivämäärä</th>
+          <th scope="col">Tila</th>
           <th scope="col">Tiedot</th>
         </tr>
       </thead>
@@ -41,6 +42,7 @@ export default function OrdersTable({ url }) {
             <td>{order.etunimi}</td>
             <td>{order.sukunimi}</td>
             <td>{(new Date(order.pvm * 1000)).toLocaleString("fi-Fi")}</td>
+            <td>{order.tila}</td>
             <td>
               <Link to={`/admin/orders/${(order.tilausnro)}`} className="btn">
                 <i className="bi bi-info-circle-fill"></i>

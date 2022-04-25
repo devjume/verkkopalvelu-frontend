@@ -90,7 +90,7 @@ if(finished === false){
 
                            <td className='text-white'>{product.amount*product.hinta}€</td>
 
-                           <td><button className='btn' href="/#" onClick={() => removeFromCart(product)}>Poista <i class="bi bi-trash3-fill"></i></button></td>
+                           <td><button className='btn' href="/#" onClick={() => removeFromCart(product)}>Poista <i className="bi bi-trash3-fill"></i></button></td>
                        
                        </tr>
 
