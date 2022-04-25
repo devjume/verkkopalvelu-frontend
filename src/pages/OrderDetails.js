@@ -60,7 +60,16 @@ export default function OrderDetails({url}) {
         {orderDetails.rows?.map((row, index) => (
           <tr key={row.rivinro}>
             <td scope="row">{row.rivinro}</td>
-            <td scope="row">{row.tuotenimi}</td>
+            <td scope="row">
+              {/*jos tuote on poistettu kannasta, näytetään vain tilatun tuotteen nimi ilman linkkiä*/}
+              {row.tuote_id == null &&
+                row.tuotenimi
+              }
+              {/*else ylempi koodi, näytetään tilatun tuotteen nimi linkin kera*/}
+              {row.tuote_id !== null &&
+                <Link to={`/product/${row.tuote_id}`}>{row.tuotenimi}</Link>
+              }
+            </td>
             <td scope="row">{row.kpl}</td>
             <td scope="row">{row.kpl_hinta}€</td>
             <td scope="row">{row.summa}€</td>
