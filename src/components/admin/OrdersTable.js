@@ -27,7 +27,7 @@ export default function OrdersTable({ url }) {
     <table className="table table-striped table-responsive">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Tilausnumero</th>
           <th scope="col">Etunimi</th>
           <th scope="col">Sukunimi</th>
           <th scope="col">Tilauspäivämäärä</th>
@@ -37,7 +37,7 @@ export default function OrdersTable({ url }) {
       <tbody>
         {orders?.map((order, index) => (
           <tr key={order.tilausnro}>
-            <td scope="row">{index+1}</td>
+            <td scope="row">{order.tilausnro}</td>
             <td>{order.etunimi}</td>
             <td>{order.sukunimi}</td>
             <td>{(new Date(order.pvm * 1000)).toLocaleString("fi-Fi")}</td>
