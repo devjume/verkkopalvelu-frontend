@@ -38,9 +38,9 @@ export default function OrdersTable({ url }) {
         {orders?.map((order, index) => (
           <tr key={order.tilausnro}>
             <td scope="row">{order.tilausnro}</td>
-            <td>{order.etunimi}</td>
-            <td>{order.sukunimi}</td>
-            <td>{(new Date(order.pvm * 1000)).toLocaleString("fi-Fi")}</td>
+            <td scope="row">{order.etunimi}</td>
+            <td scope="row">{order.sukunimi}</td>
+            <td scope="row">{(new Date(order.pvm * 1000)).toLocaleString("fi-Fi")}</td>
             <td>
               <Link to={`/admin/orders/${(order.tilausnro)}`} className="btn">
                 <i className="bi bi-info-circle-fill"></i>

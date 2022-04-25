@@ -59,10 +59,10 @@ export default function OrderDetails({url}) {
         {orderDetails.rows?.map((row, index) => (
           <tr key={row.rivinro}>
             <td scope="row">{row.rivinro}</td>
-            <td>{row.tuotenimi}</td>
-            <td>{row.kpl}</td>
-            <td>{row.kpl_hinta}€</td>
-            <td>{row.summa}€</td>
+            <td scope="row">{row.tuotenimi}</td>
+            <td scope="row">{row.kpl}</td>
+            <td scope="row">{row.kpl_hinta}€</td>
+            <td scope="row">{row.summa}€</td>
           </tr>
         ))}
       </tbody>
