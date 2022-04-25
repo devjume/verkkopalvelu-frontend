@@ -22,7 +22,7 @@ export default function Admin({url, id}) {
 
   return (
     <div className="m-3 p-3 adminsivu">
-      <h1>Admin</h1>
+      <h2>Tuotteiden hallinta</h2>
       <h4>Lisää Tuoteryhmä</h4>
       <AddCategory url={url}/>
       <h4>Lisää Tuote</h4>

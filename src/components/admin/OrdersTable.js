@@ -22,7 +22,9 @@ export default function OrdersTable({ url }) {
 
   return (
     <>
-    <table className="table table-striped">
+    <div className='m-3 p-3 adminsivu'>
+      <h2>Tilaukset</h2>
+    <table className="table table-striped table-responsive">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -48,6 +50,7 @@ export default function OrdersTable({ url }) {
         ))}
       </tbody>
     </table>
+    </div>
     </>
   )
 }

@@ -22,7 +22,7 @@ export default function OrderDetails({url}) {
 
   return (
     <>
-    <table className="table mt-4">
+    <table className="table mt-4 row">
         <thead>
           <tr>
             <th scope="col">Etunimi</th>
