@@ -22,7 +22,7 @@ export default function Contact({url}) {
     const params = new URLSearchParams();
     params.append("nimi", contactName)
     params.append("sposti", contactEmail)
-    params.append("tilaunro", orderNumber)
+    params.append("tilausnro", orderNumber)
     params.append("viesti", message)
 
     axios.post(`${url}/contact.php`, params)

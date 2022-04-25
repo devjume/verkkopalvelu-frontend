@@ -97,7 +97,8 @@ export default function App() {
           <Route path="/admin/orders" element={<Orders url={URL} />}></Route>
           <Route path="/admin/orders/:id" element={<OrderDetails url={URL} />}></Route>
           <Route path="/contact" element={<Contact url={URL} />}></Route>
-          <Route path="/viewcontact" element={<ViewContact url={URL} />}></Route>
+          <Route path="/admin/viewcontact" element={<ViewContact url={URL} />}></Route>
+          <Route path="/admin/viewcontact/:id" element={<ViewContact url={URL} />}></Route>
           <Route path="/Order" 
             element={<Order 
               cart={cart} 
