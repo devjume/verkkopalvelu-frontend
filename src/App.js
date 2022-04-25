@@ -10,7 +10,6 @@ import OrderDetails from './pages/OrderDetails';
 import Contact from './pages/Contact';
 import Discount from './pages/Discount';
 
-import CarDetails from './pages/CarDetails';
 
 import Order from './components/Order';
 import Navbar from "./components/Navbar";
