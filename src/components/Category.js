@@ -86,7 +86,7 @@ export default function Category({ url, addToCart, categoryId, fetchDiscount, ca
 
   return (
     <main className="p-3 m-3">
-      <h1 id="categoryname">{categoryName}</h1>
+      <h2 id="categoryname">{categoryName}</h2>
       <div className="row mt-3">
         <div className="col-lg-3">
           <label htmlFor="search" className="form-label">Etsi tuotenimellä</label>

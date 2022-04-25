@@ -74,7 +74,7 @@ if(finished === false){
  return (
      <main className='p-3 m-3'>
          <h2 className="Header">Tavarat ostokorissa</h2>
-         <div className='table-responsive-sm'>
+         <div className='table-responsive'>
          <table className="table">
              <tbody>
                  {cart.map((product, index) => {

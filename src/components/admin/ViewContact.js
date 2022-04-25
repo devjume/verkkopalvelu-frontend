@@ -62,6 +62,7 @@ export default function ViewContact({url}) {
     <>
     <div className='m-3 p-3 adminsivu'>
       <h2>Yhteydenotot</h2>
+      <div className="table-responsive">
     <table className="table mt-4">
         <thead>
           <tr>
@@ -94,7 +95,7 @@ export default function ViewContact({url}) {
         ))}
           
         </tbody>
-    </table>
+    </table></div>
     </div>
     </>
   )
