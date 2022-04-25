@@ -61,8 +61,8 @@ export default function OrderDetails({url}) {
             <td scope="row">{row.rivinro}</td>
             <td>{row.tuotenimi}</td>
             <td>{row.kpl}</td>
-            <td>{row.kpl_hinta}</td>
-            <td>{row.summa}</td>
+            <td>{row.kpl_hinta}€</td>
+            <td>{row.summa}€</td>
           </tr>
         ))}
       </tbody>
