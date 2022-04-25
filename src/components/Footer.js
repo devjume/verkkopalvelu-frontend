@@ -7,9 +7,9 @@ export default function Footer() {
         <div className='row'>
           <div className='col-md-4'>
           <ul className='list-group'>
-          <li className='list-group-item text-white'>Yhteystiedot:</li>
-          <li className='list-group-item text-white'>Sposti: electRoni@email.com</li>
-          <li className='list-group-item text-white'>puh: 123456769</li>
+          <li className='list-group-item text-white fs-4'>Yhteystiedot:</li>
+          <li className='list-group-item text-white'>Sähköposti: electRoni@email.com</li>
+          <li className='list-group-item text-white'>Puhelinnumero: 123456769</li>
           </ul></div> 
           <div className='col-md-1 alert'>
           <h1><i className="bi bi-instagram"></i></h1>
