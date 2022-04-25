@@ -72,9 +72,9 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
   
 if(finished === false){ 
  return (
-     <main className=''>
-         <h3 className="Header">Tavarat ostokorissa</h3>
-         <div className='table-responsive-sm'>
+     <main className='p-3 m-3'>
+         <h2 className="Header">Tavarat ostokorissa</h2>
+         <div className='table-responsive'>
          <table className="table">
              <tbody>
                  {cart.map((product, index) => {

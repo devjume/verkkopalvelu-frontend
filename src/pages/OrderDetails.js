@@ -22,7 +22,8 @@ export default function OrderDetails({url}) {
 
   return (
     <>
-    <table className="table mt-4 row">
+    <div className="m-3 p-3 adminsivu">
+    <table className="table mt-4 row table-responsive">
         <thead>
           <tr>
             <th scope="col">Etunimi</th>
@@ -59,14 +60,24 @@ export default function OrderDetails({url}) {
         {orderDetails.rows?.map((row, index) => (
           <tr key={row.rivinro}>
             <td scope="row">{row.rivinro}</td>
-            <td>{row.tuotenimi}</td>
-            <td>{row.kpl}</td>
-            <td>{row.kpl_hinta}€</td>
-            <td>{row.summa}€</td>
+            <td scope="row">
+              {/*jos tuote on poistettu kannasta, näytetään vain tilatun tuotteen nimi ilman linkkiä*/}
+              {row.tuote_id == null &&
+                row.tuotenimi
+              }
+              {/*else ylempi koodi, näytetään tilatun tuotteen nimi linkin kera*/}
+              {row.tuote_id !== null &&
+                <Link to={`/product/${row.tuote_id}`}>{row.tuotenimi}</Link>
+              }
+            </td>
+            <td scope="row">{row.kpl}</td>
+            <td scope="row">{row.kpl_hinta}€</td>
+            <td scope="row">{row.summa}€</td>
           </tr>
         ))}
       </tbody>
       </table>
+      </div>
     </>
   )
 }

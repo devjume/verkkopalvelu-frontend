@@ -55,7 +55,7 @@ export default function Contact({url}) {
         {responseMessage}
       </div>}
 
-      <h1>Ota yhteyttä</h1>
+      <h2>Ota yhteyttä</h2>
       <form id="add-product" className='formit row p-3' onSubmit={submitForm}>
         <div className="col-lg-3 p-2 form-floating mt-2">
           <input type="text" name="nimi" id="contact-name" className='form-control' placeholder='Nimi' value={contactName} onChange={e => setContactName(e.target.value)} />
