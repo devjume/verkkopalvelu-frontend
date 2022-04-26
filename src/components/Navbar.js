@@ -39,7 +39,7 @@ export default function Navbar({categories, cart}) {
               <li className='nav-item dropdown d-lg-flex align-items-center'>
               <a className='nav-link dropdown-toggle' href='#' id='adminDropdown' role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
               <ul className='dropdown-menu bg-dark' aria-labelledby="adminDropdown">
-                <li className="dropdown-item bg-dark"><Link to="/admin" className="nav-link">Tuoteiden Hallinta</Link></li>
+                <li className="dropdown-item bg-dark"><Link to="/admin" className="nav-link">Tuotteiden Hallinta</Link></li>
                 <li className="dropdown-item bg-dark"><Link to="/admin/orders" className="nav-link">Tilaukset</Link></li>
                 <li className="dropdown-item bg-dark"><Link to="/admin/viewContact" className="nav-link">Yhteydenotot</Link></li>
               </ul>
