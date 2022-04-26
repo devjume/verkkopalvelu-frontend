@@ -45,22 +45,22 @@ export default function Product({url, addToCart}) {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             {/* Palaa takaisin edelliselle sivulle käyttämällä react-router-dom useNavigate API:ta */}
-            <li className="breadcrumb-item"><button type="button" className="btn" onClick={() => navigate("/products")}>Takaisin tuotteisiin</button></li>
+            <li className="breadcrumb-item"><button type="button" className="btn btn-outline-dark" onClick={() => navigate("/products")}>Takaisin tuotteisiin</button></li>
           </ol>
         </nav>
-        <div className='col-lg-4 mt-3'>
-          <h2>{product.tuotenimi}</h2>
-          <img src={product.kuvatiedosto} className="img-fluid" alt={product.tuotenimi} style={{ width: "auto", height: "350px", objectFit: "scale-down" }}></img>
+        <div className='col-lg-5 mt-3'>
+          <h2 className='p-2'>{product.tuotenimi}</h2>
+          <img src={product.kuvatiedosto} className="img-fluid text-center" alt={product.tuotenimi} style={{ width: "auto", height: "350px", objectFit: "scale-down" }}></img>
         </div>
         <div className='col-lg-4 offset-lg-2 mt-3 p-4 kuvaustiedot text-white'>
           <h2>{product.tuotenimi}</h2>
           <h6>Valmistaja: {product.valmistaja}</h6>
           <h3>{discountPrice === null ? product.hinta : discountPrice}€ {discountPrice !== null && <s className="fs-5 fw-normal">{product.hinta}€</s>}</h3>
-          <button className='btn' onClick={(e) => addToCart(product)} style={{ zIndex: 1 }}>Lisää ostoskoriin<i className='bi bi-cart-fill'></i></button>
+          <button className='btn' onClick={(e) => addToCart(product)} style={{ zIndex: 1 }}>Lisää ostoskoriin <i className='bi bi-cart-fill'></i></button>
           </div>
       </div>
       <div className='row mt-4 px-4 kuvaus'>
-        <div className='col-lg-6 mt-3'>
+        <div className='col-lg-10 mt-3'>
           <h4>Kuvaus:</h4>
           <p>{product.kuvaus}</p>
         </div>

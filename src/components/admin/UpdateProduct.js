@@ -128,7 +128,7 @@ export default function UpdateProduct({ url }) {
       </form>
 
       <form id="add-product" className='row p-4 formit'  onSubmit={muokkaa}>
-        <div className="col-4 p-2 form-floating">
+        <div className="col-lg-4 p-2 form-floating">
           <input type="text" name="tuotenimi" id="product-name" className='form-control' placeholder='Tuotteen nimi' value={productName} onChange={e => setProductName(e.target.value)}/>
           <label htmlFor="product-name" className='form-label'>Tuotenimi</label>
         </div>
