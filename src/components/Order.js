@@ -20,14 +20,11 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
   const [city, setCity] = useState("");
   const [finished, setFinished] = useState(false);
 
-
- 
-  
   useEffect(() => {
       for (let i = 0;i<cart.length;i++) {
           inputs[i] = React.createRef();
       }
-  }, [cart.length])
+  }, [cart])
  
   useEffect(() => {
       if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex].current !== null) {
@@ -36,9 +33,10 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
   }, [cart, inputs, inputIndex]) 
   
      let sum = 0;
- 
+     let test = 0;
+
   function changeAmount(e,product,index) {
-      updateAmount(e.target.value,product);
+      updateAmount(parseInt(e.target.value),product);
       setInputIndex(index);
   }
   function order(e){
@@ -79,6 +77,7 @@ if(finished === false){
              <tbody>
                  {cart.map((product, index) => {
                    sum+=parseFloat(product.hinta) * parseInt(product.amount);
+                   test+=product.amount;
                    return(
                        <tr key={uuid()} className='formit'>
                            <td className='bg-light'><img src={product.kuvatiedosto} className='ostoskoripikkukuvat img-fluid'></img></td>
@@ -101,7 +100,7 @@ if(finished === false){
                         <td></td>
                         <td>Yhteishinta {sum.toFixed(2)} €</td>
                         <td></td>
-                        <td></td>
+                        <td>Yhteensä: {test}</td>
                     </tr>
              </table>
              <button className='btn m-2' onClick={empty}>Tyhjennä ostoskori</button>
