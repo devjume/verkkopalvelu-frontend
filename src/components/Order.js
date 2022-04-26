@@ -75,17 +75,17 @@ if(finished === false){
                    sum+=parseFloat(product.hinta) * parseInt(product.amount);
                    test+=product.amount;
                    return(
-                       <tr key={uuid()} className='formit'>
-                           <td className='bg-light'><img src={product.kuvatiedosto} className='ostoskoripikkukuvat img-fluid'></img></td>
-                           <td><h4 className='text-white'>{product.tuotenimi}</h4></td>
-                           <td className='text-white'>{product.hinta}€</td>
-                           <td>
-                               <input type={"number"} min={"1"} max={"1000"} ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
+                       <tr key={uuid()} className='formit d-flex'>
+                           <td className='bg-light col-4'><img src={product.kuvatiedosto} className='ostoskoripikkukuvat img-fluid'></img></td>
+                           <td className='col-4'><h4 className='text-white'>{product.tuotenimi}</h4></td>
+                           <td className='text-white col-1'>{product.hinta}€</td>
+                           <td className='col-1'>
+                               <input type={"number"} min={"1"} max={"1000"} ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)} className="form-control w-100"></input>
                            </td>
 
-                           <td className='text-white'>{product.amount*product.hinta}€</td>
+                           <td className='text-white col-1'>{(product.amount*product.hinta).toFixed(2)}€</td>
 
-                           <td><button className='btn' href="/#" onClick={() => removeFromCart(product)}>Poista <i className="bi bi-trash3-fill"></i></button></td>
+                           <td className='col-1'><button className='btn' href="/#" onClick={() => removeFromCart(product)}><i className="bi bi-trash3-fill"></i></button></td>
                        
                        </tr>
 
