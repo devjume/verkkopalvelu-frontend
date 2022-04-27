@@ -31,7 +31,7 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
   }, [cart, inputs, inputIndex]) 
   
      let sum = 0;
-     let test = 0;
+     let allProductCount = 0;
 
   function changeAmount(e,product,index) {
       updateAmount(parseInt(e.target.value),product);
@@ -65,46 +65,39 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
 
   
 if(finished === false){ 
- return (
-     <main className='p-3 m-3'>
-         <h2 className="Header">Tavarat ostokorissa</h2>
-         <div className='table-responsive'>
-         <table className="table">
-             <tbody>
-                 {cart.map((product, index) => {
-                   sum+=parseFloat(product.hinta) * parseInt(product.amount);
-                   test+=product.amount;
-                   return(
-                       <tr key={uuid()} className='formit'>
-                           <td className='bg-light'><img src={product.kuvatiedosto} className='ostoskoripikkukuvat img-fluid'></img></td>
-                           <td><h4 className='text-white'>{product.tuotenimi}</h4></td>
-                           <td className='text-white'>{product.hinta}€</td>
-                           <td>
-                               <input type={"number"} min={"1"} max={"1000"} ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
-                           </td>
-
-                           <td className='text-white'>{product.amount*product.hinta}€</td>
-
-                           <td><button className='btn' href="/#" onClick={() => removeFromCart(product)}>Poista <i className="bi bi-trash3-fill"></i></button></td>
-                       
-                       </tr>
-
-                    )
-                    })}</tbody></table></div>
-                    <div><table>
-                    <tr key={uuid()}>
-                        <td></td>
-                        <td>Yhteishinta {sum.toFixed(2)} €</td>
-                        <td></td>
-                        <td>Yhteensä: {test}</td>
-                    </tr>
-             </table>
-             <button className='btn m-2' onClick={empty}>Tyhjennä ostoskori</button>
-             </div>
+  return (
+    <>
+    <main className='p-0 m-0 p-sm-2 '>
+      <h2 className="Header py-3 py-md-4 ps-0 ps-md-3 text-center text-sm-start">Ostoskori</h2>
+      <div className='d-flex flex-column'>
+      {cart.map((product, index) => {
+        sum+=parseFloat(product.hinta) * parseInt(product.amount);
+        allProductCount+=product.amount;
+        return (
+          <div className='d-flex flex-row border border-1 border-dark align-items-center mb-2 formit text-white' style={{"height": "200px"}} key={uuid()}>
+            <div className='w-25 d-flex justify-content-center align-items-center bg-white mb-auto h-100 '>
+              <img src={product.kuvatiedosto} className='ostoskoripikkukuvat img-fluid'></img>
+            </div>
+            <h4 className='mb-0 ms-3'>{product.tuotenimi}</h4>
+            <p className='me-3 mb-0 fs-5 ms-auto'>{product.amount*product.hinta}€</p>
+            <input type={"number"} min={"1"} max={"1000"} className="me-3" ref={inputs[index]} style={{width: '60px'}} value={product.amount} onChange={e => changeAmount(e,product, index)}></input>
+            <button className='btn me-4' href="/#" onClick={() => removeFromCart(product)}><i className="bi bi-trash3-fill"></i></button>
+          </div>
+          
+      )})}
+      </div>
+      <div className='m-2 py-2'>
+        <div className='d-flex flex-direction-row justify-content-between align-items-center'>
+            <button className='btn m-2' onClick={empty}>Tyhjennä ostoskori</button>
+            <p className='fs-6 ms-auto me-4 m-0 p-0'>Määrä: {allProductCount} kpl</p>
+            <h4 className='m-0'>Kokonaishinta: {sum.toFixed(2)} €</h4>
+        </div>
+      </div>
+          
         {cart.length > 0 && // Render order form, if theres something in the cart
-          <>
+          <div className='mt-4 container'>
             <h3 className='header'>Asiakastiedot:</h3>
-            <form onSubmit={order} className='formit p-3 m-6 row'>
+            <form onSubmit={order} className='formit p-3 m-6 row '>
               <div className="col-md-6 col-lg-4 p-1 form-floating">
                 <input type="text" name="firstname" id="firstname" className='form-control' placeholder='etunimi' onChange={e => setFirstname(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Etunimi</label>
@@ -133,13 +126,15 @@ if(finished === false){
                 <input type="text" name="city" id="city" className='form-control' placeholder='Kaupunki' onChange={e => setCity(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Kaupunki</label>
               </div>
-              <div className='buttons m-2'>
-                <button className='btn'>Tilaa</button>
+              <div className="col-md-6 col-lg-4 p-1">
+                <button className='btn w-100 h-100'>Tilaa</button>
               </div>
+              
             </form>
-          </>
+          </div>
          } 
-     </main>
+         </main>
+        </>
     )
   } else {
     return (<h3>Thank you for your order</h3>)

@@ -83,7 +83,7 @@ export default function App() {
       <>
       <Navbar categories={categories} cart={cart} />
     
-      <div className="container mb-5">
+      <div className="container mb-5 p-0">
         <Routes>
           <Route path="*" element={<NotFound/>} ></Route>
           <Route path="/" element={<Home url={URL} addToCart={addToCart} categories={categories} />} ></Route>
