@@ -22,8 +22,8 @@ export default function OrderDetails({url}) {
 
   return (
     <>
-    <div className="m-3 p-3 adminsivu">
-    <table className="table mt-4 row table-responsive">
+    <div className="m-3 p-3 adminsivu table-responsive">
+    <table className="table mt-4 table-responsive">
         <thead>
           <tr>
             <th scope="col">Etunimi</th>

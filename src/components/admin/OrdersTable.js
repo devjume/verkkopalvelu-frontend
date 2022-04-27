@@ -8,6 +8,7 @@ export default function OrdersTable({ url }) {
   const [orders, setOrders] = useState([])
   const [fetchError, setFetchError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [tila, setTila] = useState([])
 
   useEffect(() => {
     axios.get(`${url}/orders.php`)
@@ -18,8 +19,23 @@ export default function OrdersTable({ url }) {
       }).finally(() => {
         setIsLoaded(true);
       })
+      axios.get(`${url}/tila.php`)
+      .then((response) => {
+        setTila(response.data);
+      }).catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      }).finally(() => {
+        setIsLoaded(true);
+      })
   }, [])
 
+  function updatedTila(tila, tilausnro){
+    console.log(tila)
+    const params = new URLSearchParams();
+    params.append("tila", tila);
+    params.append("tilausnro", tilausnro);
+    axios.post(`${url}/updatedtila.php`, params)
+  }
   return (
     <>
     <div className='m-3 p-3 adminsivu'>
@@ -32,6 +48,7 @@ export default function OrdersTable({ url }) {
           <th scope="col">Etunimi</th>
           <th scope="col">Sukunimi</th>
           <th scope="col">Tilauspäivämäärä</th>
+          <th scope="col">Tila</th>
           <th scope="col">Tiedot</th>
         </tr>
       </thead>
@@ -42,6 +59,12 @@ export default function OrdersTable({ url }) {
             <td scope="row">{order.etunimi}</td>
             <td scope="row">{order.sukunimi}</td>
             <td scope="row">{(new Date(order.pvm * 1000)).toLocaleString("fi-Fi")}</td>
+            <td scope="row"><select id="tila" onChange={e => updatedTila(e.target.value, order.tilausnro)}>
+            {tila?.map(tila => (
+              <option name="tila" value={tila.id}  className="dropdown-item" key={tila.id}>
+                {tila.tila}
+              </option>))}
+          </select></td>
             <td>
               <Link to={`/admin/orders/${(order.tilausnro)}`} className="btn">
                 <i className="bi bi-info-circle-fill"></i>
