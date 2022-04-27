@@ -8,7 +8,6 @@ export default function Admin({url, id}) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    console.log(url);
     /*
     const params = new URLSearchParams();
     params.append("id", id);

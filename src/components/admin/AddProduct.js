@@ -30,8 +30,6 @@ export default function AddProduct({ url }) {
     params.append("tuoteryhma", productCategory)
     axios.post(`${url}/addproduct.php`, params)
       .then((response) => {
-        console.log(response.data);
-        
         setShowMessage(true);
        // clearTimeout(timer)
         //alert(response.data.success);
@@ -55,7 +53,6 @@ export default function AddProduct({ url }) {
   useEffect(() => {
     axios.get(`${url}/categories.php`)
       .then((response) => {
-        //console.log(response.data)
         setCategories(response.data)
       }).catch(error => {
         alert(error.response ? error.response.data.error : error)

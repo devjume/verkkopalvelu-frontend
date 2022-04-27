@@ -1,7 +1,5 @@
 import React, { useState, useEffect, createRef } from 'react';
 import uuid from 'react-uuid';
-
-import Item from './Item';
 import axios from 'axios';
 
 
@@ -43,7 +41,6 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
   }
   function order(e){
     e.preventDefault();
-    console.log(cart)
     const json = JSON.stringify({
       firstname: firstname,
       lastname: lastname,
@@ -54,7 +51,6 @@ export default function Order ({cart,removeFromCart,updateAmount, url, empty}) {
       city: city,
       cart: cart,
     });
-    console.log(json)
   axios.post(url + "/order/save.php",json,{
     headers: {
       "Accept": "application/json",

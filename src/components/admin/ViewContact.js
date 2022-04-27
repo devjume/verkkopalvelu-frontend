@@ -37,7 +37,6 @@ export default function ViewContact({url}) {
     axios.get(`${url}/viewcontact.php`, { params: { id: id } })
       .then((response) => {
         setContacts(response.data);
-        console.log(response.data)
       }).catch(error => {
         alert(error.response ? error.response.data.error : error)
       }).finally(() => {

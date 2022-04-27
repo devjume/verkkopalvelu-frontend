@@ -33,7 +33,6 @@ export default function DeleteProduct({ url }) {
   useEffect(() => {
     axios.get(`${url}/products.php`)
       .then((response) => {
-        console.log(response.data)
         setProducts(response.data)
       }).catch(error => {
         alert(error.response ? error.response.data.error : error)
