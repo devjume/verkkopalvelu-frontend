@@ -106,7 +106,7 @@ if(finished === false){
                 <input type="text" name="lastname" id="lastname" className='form-control' placeholder='sukunimi' onChange={e => setLastname(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Sukunimi</label>
               </div>
-              <div className="col-lg-4 p-1 form-floating">
+              <div className="col-lg-5 p-1 form-floating">
                 <input type="text" name="email" id="email" className='form-control' placeholder='sähköposti' onChange={e => setEmail(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Sähköposti</label>
               </div>
@@ -126,7 +126,7 @@ if(finished === false){
                 <input type="text" name="city" id="city" className='form-control' placeholder='Kaupunki' onChange={e => setCity(e.target.value)} />
                 <label htmlFor="nimi" className='form-label'>Kaupunki</label>
               </div>
-              <div className="col-md-6 col-lg-4 p-1">
+              <div className="col p-1">
                 <button className='btn w-100 h-100'>Tilaa</button>
               </div>
               
