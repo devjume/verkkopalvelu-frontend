@@ -1,0 +1,28 @@
+=======ETUSIVU======
+Tässä on electronin etusivu, jossa on pari tuoteryhmäkarusellia, ja tommonen aletuotebanneri. Tuotekorttia painamalla pääsee yhden tuotteen omalle sivulle, 
+josta voi lukea tuotteen tietoja tarkemmin.
+
+=======ALELAARI=======
+Painamalla aletuotebannerista pääsee selaamaan kaikkia alessa olevia tuotteita, täälläkin sivulla on nuo tuotekortit käytössä, eli pääsee katsomaan tuotteen tietoja tarkasti.
+
+=======KATEGORIA======
+Painamalla jotain kategoriaa, pääsee selaamaan tuotteita tuoteryhmittäin, sivulla voi myös etsiä tuotteita tuotenimen perusteella. Esimerkiksi jos haluaa etsiä itelle 
+uutta läppäriä, ja on iso muumi fani, täytyy hakupalkkiin kirjoittaa vaan "MUUMI".
+
+Kategorioiden alla on myös "kaikki tuotteet" mistä voi selata kaikkia meillä olevia tuotteita, haku (nimen perusteella) toimii täälläkin.
+
+=====OSTOSKORI=======
+Ostoskori tietenkin löytyy, täällä näkee kaikki sinne valitut tuotteet, kappalemäärää pääsee muuttamaan. Tuotteittain näkyy yhteenlaskettu hinta ja kappalemäärä. 
+Koko ostoskorin yhteenlaskettu hinta ja kappalemäärä näkyvät tuossa alhaalla. Yksittäisen tuotteen voi poistaa ostoskorista, tai halutessaan tyhjentää koko korin. 
+Tuohon pistetään omat yhteystiedot, jotka sitten tallentuu asiakastauluun.
+
+====YHTEYDENOTTOLOMAKE=====
+Meillä on yhteydenottolomake kans täällä.
+
+====ADMIN====
+Ensimmäiseksi meillä on tuotteiden hallinta, josta voi lisätä tuoteryhmiä, lisätä tuotteita, ja muokata tuotteita.
+
+Sitten meillä on tilausten tarkastelu, tässä voi muokata tilauksen "tilaa", onko se maksettu, odottaako käsittelyä, vai onko lähetetty. Infonappia painamalla näkee tilauksen 
+kaikki tiedot.
+
+Admin sivulla voi myös tarkastella yhteydenottoja.
