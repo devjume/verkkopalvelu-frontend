@@ -71,7 +71,7 @@ export default function App() {
       localStorage.setItem('cart', JSON.stringify(modifiedCart));
     }
   
-    
+    // Empty cart
   function empty() {
     localStorage.removeItem("cart");
     setCart([])
