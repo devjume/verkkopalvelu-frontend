@@ -90,12 +90,13 @@ export default function AddProduct({ url }) {
           <label htmlFor="product-img" className='form-label'>Kuvatiedosto</label>
         </div>
         <div className="col-lg-2 p-1 form-floating">
-        <select onChange={e => setProductCategory(e.target.value)}>
+          <select id='categorySelect' className='form-select' onChange={e => setProductCategory(e.target.value)}>
           {categories?.map(category => (
-            <option name="tuoteryhma" value={category.id} className="dropdown-item" key={category.id}>
+            <option name="tuoteryhma" value={category.id} className="" key={category.id}>
               {category.nimi}
             </option>))}
         </select>
+        <label for="categorySelect">Kategoria</label>
         </div>
         <div className="col-2 d-flex align-items-end">
           <button type="submit" className='btn m-2'>Lisää</button>
