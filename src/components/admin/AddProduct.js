@@ -96,7 +96,7 @@ export default function AddProduct({ url }) {
               {category.nimi}
             </option>))}
         </select>
-        <label for="categorySelect">Kategoria</label>
+        <label htmlFor="categorySelect">Kategoria</label>
         </div>
         <div className="col-2 d-flex align-items-end">
           <button type="submit" className='btn m-2'>Lisää</button>
