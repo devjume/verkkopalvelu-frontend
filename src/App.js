@@ -8,7 +8,7 @@ import Admin from './pages/Admin';
 import Orders from './pages/Orders';
 import OrderDetails from './pages/OrderDetails';
 import Contact from './pages/Contact';
-import Discount from './pages/Discount';
+
 
 
 import Order from './components/Order';
