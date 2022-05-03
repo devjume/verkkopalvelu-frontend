@@ -99,6 +99,10 @@
   transform: scale(0.9);
   transition: transform 0.2s ease;
 }
+.card:not(hover) {
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
 .navbar {
   background-color: #2C302E;
 }
@@ -107,6 +111,14 @@
 }
 .navbarimg:hover {
   transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+.navbarimg:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+.navbarimg:not(:hover) {
+  transform: scale(1);
   transition: transform 0.2s ease;
 }
 body {
