@@ -70,7 +70,7 @@ export default function OrdersTable({ url }) {
               </option>))}
           </select></td>
             <td>
-              <Link to={`/admin/orders/${(order.tilausnro)}`} className="btn">
+              <Link to={`/admin/orders/${(order.tilausnro)}`} className="btn border border-dark">
                 <i className="bi bi-info-circle-fill"></i>
               </Link>
             </td>
