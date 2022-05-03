@@ -17,7 +17,6 @@ export default function Product({url, addToCart}) {
   useEffect(() => {
       axios.get(`${url}/product.php`, { params: {id: id}})
         .then((response) => {
-          console.log(response.data);
           setProduct(response.data);
 
           // Tarkastaa onko alehintaa määritelty. Jos alehintaa ei ole tai se on 0 niin laitetaan discountPrice arvoksi = null. Tämä arvo nyt yksinkertaisempi tarkistaa alhaalla return kohdassa.
@@ -56,7 +55,7 @@ export default function Product({url, addToCart}) {
           <h2>{product.tuotenimi}</h2>
           <h6>Valmistaja: {product.valmistaja}</h6>
           <h3>{discountPrice === null ? product.hinta : discountPrice}€ {discountPrice !== null && <s className="fs-5 fw-normal">{product.hinta}€</s>}</h3>
-          <button className='btn' onClick={(e) => addToCart(product)} style={{ zIndex: 1 }}>Lisää ostoskoriin <i className='bi bi-cart-fill'></i></button>
+          <button className='btn btn-outline-dark' onClick={(e) => addToCart(product)} style={{ zIndex: 1 }}>Lisää ostoskoriin <i className='bi bi-cart-fill'></i></button>
           </div>
       </div>
       <div className='row mt-4 px-4 kuvaus'>

@@ -95,11 +95,19 @@
   height: 12vw;
   object-fit: cover;
 }
+.card:hover {
+  transform: scale(0.9);
+  transition: transform 0.2s ease;
+}
 .navbar {
   background-color: #2C302E;
 }
 .navbarimg {
   height: 40px;
+}
+.navbarimg:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }
 body {
   background-color: #C4C4C4;
@@ -122,10 +130,8 @@ main {
 }
 .ostoskoripikkukuvat {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  max-height: 180px;
   width: auto;
-  height: 120px;
 }
 .korttibg {
   background-color: #a0e49c;

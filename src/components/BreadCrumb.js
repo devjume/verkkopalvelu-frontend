@@ -7,11 +7,9 @@ export default function BreadCrumb({ url }) {
 
 
   useEffect(() => {
-    console.log(location.pathname);
     let x = location.pathname;
     let y = x.split("/");
     for (let i = 0; i < y.length; i++) {
-      console.log(y[i]);
     }
   },[])
 

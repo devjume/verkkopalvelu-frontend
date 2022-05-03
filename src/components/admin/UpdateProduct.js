@@ -115,14 +115,14 @@ export default function UpdateProduct({ url }) {
   return (
     <>
       <form id="update-product" className='row p-4 formit'  onSubmit={savePick}>
-        <div className="col-3">
-          <label htmlFor="tuote" className="form-label text-white">Tuote:</label>
-          <select id="tuote" onChange={e => setSelectedProduct(e.target.value)}>
+        <div className="col-3 p-1 form-floating">
+          <select id="tuote" className='form-select' onChange={e => setSelectedProduct(e.target.value)}>
             {products?.map(product => (
               <option name="tuoteryhma"  value={product.tuote_id}  className="dropdown-item" key={product.tuote_id}>
                 {product.tuotenimi}
               </option>))}
           </select>
+          <label htmlFor="tuote">Tuote:</label>
           <button type="submit" className='btn m-2'>Valitse</button>
         </div>
       </form>

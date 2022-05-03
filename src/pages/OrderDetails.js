@@ -76,6 +76,12 @@ export default function OrderDetails({url}) {
           </tr>
         ))}
       </tbody>
+      <tfoot style={{"border-bottom-color": "black"}}>
+        <tr>
+              <td colSpan={4}>Yhteensä:</td>
+              <td scope="row">{orderDetails.totalSum}€</td>
+        </tr>
+      </tfoot>
       </table>
       </div>
     </>

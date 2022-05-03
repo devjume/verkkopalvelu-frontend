@@ -8,7 +8,7 @@ import Admin from './pages/Admin';
 import Orders from './pages/Orders';
 import OrderDetails from './pages/OrderDetails';
 import Contact from './pages/Contact';
-import Discount from './pages/Discount';
+
 
 
 import Order from './components/Order';
@@ -71,7 +71,7 @@ export default function App() {
       localStorage.setItem('cart', JSON.stringify(modifiedCart));
     }
   
-    
+    // Empty cart
   function empty() {
     localStorage.removeItem("cart");
     setCart([])
@@ -83,7 +83,7 @@ export default function App() {
       <>
       <Navbar categories={categories} cart={cart} />
     
-      <div className="container mb-5">
+      <div className="container mb-5 p-0">
         <Routes>
           <Route path="*" element={<NotFound/>} ></Route>
           <Route path="/" element={<Home url={URL} addToCart={addToCart} categories={categories} />} ></Route>
