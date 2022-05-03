@@ -140,7 +140,7 @@ main {
 .formit {
   background-color: #474A48;
 }
-.ostoskoripikkukuvat {
+.ostoskoripikkukuvat1 {
   display: block;
   max-height: 180px;
   width: auto;
@@ -154,3 +154,19 @@ h4 {
 .btn {
   background-color: #a0e49c;
 }
+
+@media only screen and (max-width: 576px) {
+  .cartImageDiv {
+    width: 75% !important;
+  }
+
+  .ostoskoripikkukuvat {
+    max-width: 75%;
+  }
+}
+
+/* style= {
+    {
+    "minWidth": "25%", "maxWidth": "25%"
+  }
+} */

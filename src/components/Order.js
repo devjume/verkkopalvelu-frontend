@@ -78,13 +78,13 @@ if(finished === false){
         }
         allProductCount+=product.amount;
         return (
-          <div className='d-flex flex-column flex-sm-row border border-1 border-dark align-items-center mb-2 formit text-white' style={{"height": "200px"}} key={uuid()}>
-            <div className='w-25 d-flex justify-content-center align-items-center bg-white mb-auto h-100 order-1'>
-              <img src={product.kuvatiedosto} className='ostoskoripikkukuvat img-fluid p-1'></img>
+          <div className='d-flex flex-column flex-sm-row border border-1 border-dark align-items-center mb-2 formit text-white' style={{"minHeight": "200px"}} key={product.tuote_id}>
+            <div className='h-100 w-25 p-2 flex-shrink-0 d-flex justify-content-center align-items-center bg-white mb-auto order-1 cartImageDiv'>
+              <img src={product.kuvatiedosto} className='ostoskoripikkukuvat' style={{ "height": "200px", "width": "100%", "objectFit": "scale-down"}}></img>
             </div>
             <h4 className='mb-1 ms-3 order-0 text-center text-sm-start order-sm-1'>{product.tuotenimi}</h4>
             <div className='d-flex flex-row my-2 order-2 justify-content-center justify-content-sm-end ms-sm-auto'>
-              <p className='me-3 mb-0 fs-5'>{product.alehinta === null || product.alehinta == 0 ? (product.amount * product.hinta) : (product.amount * product.alehinta)}€ {product.alehinta > 0 && <s className="fs-6 fw-normal">{product.hinta}€</s>} </p>
+              <p className='me-3 mb-0 fs-5'>{product.alehinta === null || product.alehinta == 0 ? (product.amount * product.hinta) : (product.amount * product.alehinta)}€ {product.alehinta > 0 && <s className="fs-6 fw-normal">{product.hinta}€</s>} </p>
               <input type={"number"} min={"1"} max={"1000"} className="me-3 form-control w-25" ref={inputs[index]} style={{}} value={product.amount} onChange={e => changeAmount(e, product, index)}></input>
               <button className='btn me-4' href="/#" onClick={() => removeFromCart(product)}><i className="bi bi-trash3-fill"></i></button>
             </div>
