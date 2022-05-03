@@ -29,7 +29,7 @@ export default function Navbar({categories, cart}) {
               <ul className="dropdown-menu bg-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 {items?.map(item => (
                   <li className="dropdown-item bg-dark" key={item.id}>
-                    <Link to={`/${(item.nimi).toLowerCase()}`} className="nav-link" aria-current="page">{item.nimi}</Link>
+                    <Link to={`/${(item.nimi).replace(/\u00e4/g, "a").replace(/\u00f6/g, "o").toLowerCase()}`} className="nav-link" aria-current="page">{item.nimi}</Link>
                   </li>
                 ))}
                 <li><hr className="dropdown-divider"/></li>

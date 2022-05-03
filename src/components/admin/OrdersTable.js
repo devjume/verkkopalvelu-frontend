@@ -29,10 +29,14 @@ export default function OrdersTable({ url }) {
       })
   }, [])
 
-  function updatedTila(tila, tilausnro){
-    console.log(tila)
+  function updatedTila(uusiTila, tilausnro){
+    const index = orders.findIndex(item => item.tilausnro === tilausnro);
+    const tempOrders = [...orders];
+    tempOrders[index].tila = uusiTila;
+    setOrders(tempOrders);
+
     const params = new URLSearchParams();
-    params.append("tila", tila);
+    params.append("tila", uusiTila);
     params.append("tilausnro", tilausnro);
     axios.post(`${url}/updatedtila.php`, params)
   }
@@ -59,9 +63,9 @@ export default function OrdersTable({ url }) {
             <td scope="row">{order.etunimi}</td>
             <td scope="row">{order.sukunimi}</td>
             <td scope="row">{(new Date(order.pvm * 1000)).toLocaleString("fi-Fi")}</td>
-            <td scope="row"><select id="tila" onChange={e => updatedTila(e.target.value, order.tilausnro)}>
+            <td scope="row"><select id="tila" value={order.tila} onChange={e => updatedTila(e.target.value, order.tilausnro)}>
             {tila?.map(tila => (
-              <option name="tila" value={tila.id}  className="dropdown-item" key={tila.id}>
+               <option name="tila" value={tila.id} className="dropdown-item" key={tila.id}>
                 {tila.tila}
               </option>))}
           </select></td>
