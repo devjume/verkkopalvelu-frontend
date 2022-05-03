@@ -85,7 +85,7 @@ if(finished === false){
             <h4 className='mb-1 ms-3 order-0 text-center text-sm-start order-sm-1'>{product.tuotenimi}</h4>
             <div className='d-flex flex-row my-2 order-2 justify-content-center justify-content-sm-end ms-sm-auto'>
               <p className='me-3 mb-0 fs-5'>{product.alehinta === null || product.alehinta == 0 ? (product.amount * product.hinta) : (product.amount * product.alehinta)}€ {product.alehinta > 0 && <s className="fs-6 fw-normal">{product.hinta}€</s>} </p>
-              <input type={"number"} min={"1"} max={"1000"} className="me-3 form-control w-25" ref={inputs[index]} style={{}} value={product.amount} onChange={e => changeAmount(e, product, index)}></input>
+              <input type={"number"} min={"1"} max={"1000"} className="me-3 form-control" ref={inputs[index]} style={{"width" : "70px"}} value={product.amount} onChange={e => changeAmount(e, product, index)}></input>
               <button className='btn me-4' href="/#" onClick={() => removeFromCart(product)}><i className="bi bi-trash3-fill"></i></button>
             </div>
           </div>
@@ -94,7 +94,7 @@ if(finished === false){
       <div className='m-2 py-2'>
         <div className='d-flex flex-column flex-sm-row justify-content-end align-items-center'>
             <button className='btn m-2 me-sm-auto order-sm-0 order-3' onClick={empty}>Tyhjennä ostoskori</button>
-            <p className='fs-6 m-0 p-0 me-3 order-sm-1'>Määrä: {allProductCount} kpl</p>
+            <p className='fs-6 m-0 p-0 mx-3 order-sm-1'>Määrä: {allProductCount} kpl</p>
             <h4 className='m-0 order-sm-2'>Kokonaishinta: {sum.toFixed(2)} €</h4>
         </div>
       </div>
