@@ -30,7 +30,6 @@
   #bannerimg{
     width: 100%;
     height: 100%;
-    margin-bottom: 2rem;
   }
 
   footer {
@@ -74,6 +73,12 @@
   box-shadow: 0 0 1px 3px rgba(80,76,76, 1);
 }
 /*carousel arrows*/
+.rec.rec.rec-arrow {
+  min-width: 0.5rem;
+  padding: 0.25rem;
+  height: auto;
+}
+
 .rec.rec-arrow {
   border-radius: 0;
   color: rgba(80,76,76, 1);

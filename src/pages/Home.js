@@ -5,12 +5,12 @@ import axios from 'axios';
 import Banner from '../components/admin/Banner';
 
 export default function Home({url, addToCart, categories}) {
-  const [twoCategories, setTwoCategories] = useState(categories.slice(0,2))
+  const [twoCategories, setTwoCategories] = useState(categories.slice(0,3))
    useEffect(() => {
    }, [])
 
   return (
-    <main className='p-3 m-3'>
+    <main className='p-0 m-0 p-sm-3 m-sm-3'>
       <Banner></Banner>
       {twoCategories?.map(category => (
             <ComponentCarousel key={category.id} url={url} categoryId={category.id} addToCart={addToCart} categoryName={category.nimi} />

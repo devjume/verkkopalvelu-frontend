@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
+  { width: 577, itemsToShow: 2 },
   { width: 768, itemsToShow: 3 },
   { width: 1200, itemsToShow: 4 },
 ];
@@ -27,11 +27,11 @@ export default function ComponentCarousel({ categoryId, url, categoryName, addTo
 
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>{categoryName}</h1>
+      <h1 className="text-center mb-3">{categoryName}</h1>
       <div className="carousel">
-        <Carousel breakPoints={breakPoints} itemPadding={[0, 5]}  /*autoPlaySpeed={10000} enableAutoPlay={true}*/ enableMouseSwipe={false} enableSwipe={false} showArrows={true}>
+        <Carousel breakPoints={breakPoints} itemPadding={[0, 5]}  /*autoPlaySpeed={10000} enableAutoPlay={true}*/ pagination={false} enableMouseSwipe={false} enableSwipe={false} showArrows={true}>
         {products?.map(product => (
-          <div className="col-12 d-flex" key={product.tuote_id}>
+          <div className="col-12 d-flex mb-4" key={product.tuote_id}>
             <ProductCard product={product} addToCart={addToCart} key={product.tuote_id} />
           </div>
         ))} 
