@@ -50,7 +50,7 @@ export default function Contact({url}) {
   }, [showMessage]);
 
   return (
-    <main className="p-3 m-3">
+    <main className="p-1 m-0 p-sm-3 m-sm-3">
       {showMessage && <div className="alert alert-success mt-2" role="alert">
         {responseMessage}
       </div>}
