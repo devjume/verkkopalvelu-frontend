@@ -65,7 +65,7 @@ export default function OrderDetails({url}) {
               {row.tuote_id == null &&
                 row.tuotenimi
               }
-              {/*else ylempi koodi, näytetään tilatun tuotteen nimi linkin kera*/}
+              {/*else ylempi koodi, näytetään tilatun tuotteen nimi linkin kera */}
               {row.tuote_id !== null &&
                 <Link to={`/product/${row.tuote_id}`}>{row.tuotenimi}</Link>
               }
